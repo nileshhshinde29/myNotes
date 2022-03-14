@@ -1,0 +1,42 @@
+RestOperator
+
+        function sum(a, b,...arg)
+        {
+            console.log(arg)      // it returns an array [3,4,5]
+        }                          // the rest operator convert list of items into an array 
+
+        sum(1,2,3,4,5)
+
+
+Spread operator
+
+     eg1---
+        let SpreadExample = [ 1 , 2 , 3 ]
+        
+        Math.min(...SpreadExample)
+        ---
+
+     eg2---
+        let a = [1, 2, 3];
+        let b = [4, 5, 6];
+
+        let c = [...a, ...b];
+
+        a.push(7);
+        console.log(a); // [1, 2, 3, 7]
+        console.log(c); // [1, 2, 3, 4, 5, 6]        rest operator make copy of elements and if we update a 
+                                                //   it will not upadate the c
+        ---                                
+        //Spread Operator converts array into list of items 
+
+comparison 
+  
+  function addition( a, b, c, ...arg) // Rest Operator.
+  {
+          return a + b + c
+  }
+ 
+ let  array = [ 1, 2, 3, 4, 5, 6]
+
+   addition(...array )     // Spread Operator.
+

@@ -1,0 +1,22 @@
+Get Request
+
+
+     useEffect(() => {
+
+             axios.get('https://api.npms.io/v2/search?q=react')
+               .then(response => setTotalReactPackages(response.data.total));
+
+     }, []);
+
+     componentDidMount() {
+
+              axios.get('https://api.npms.io/v2/search?q=react')
+              .then(response => this.setState({ totalReactPackages: response.data.total }));
+    
+    }
+
+
+Post Request    
+
+
+   

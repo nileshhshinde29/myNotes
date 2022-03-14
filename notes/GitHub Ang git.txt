@@ -1,0 +1,159 @@
+token =  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
+
+
+* sudo apt install git-all
+* git -- version    //  for chacking the version    
+
+-------------------------------------------------
+
+* git config --global user.name "Nilesh Shinde"               // set username
+* git config --global user.email "nileshhshinde29@gmail.com"   // set gmail
+
+* git config --global user.name                    // check username
+* git config --global user.email                   // check email
+
+Another way :
+    
+ *   git config --global --edit   
+
+      // by this way you can directly change the name and email
+      //  ctrl + x for exit 
+--------------------------------------------------------------------------
+this is not a git command its basic commands
+
+  mkdir LetLearnGit      // create folder 
+  cd LetLearnGit         // go into this folder 
+
+-----------------------------------------------------------------------------
+making reposiratory:
+
+* git init
+* ls -a   // to check  its show . .. .git
+
+// you should goto your folder where you want to create reposiratory by using the cd__ / and run this command 
+//  the empty reposiratory will create in this folder
+
+------------------------------------------------------------------------------
+
+after that you can open this folder in vs code
+and you can create any file inside this folder eg. sum.js 
+
+* git status
+  if you run this command you will see that,
+            Untracked files:
+            (use "git add <file>..." to include in what will be committed)
+                Su
+            nothing added to commit but untracked files present (use "git add" to track)
+
+-------------------------------------------------------------------------------
+for track this file you should run following command
+ 
+* git add Sum.js
+
+you will see,
+            No commits yet
+
+            Changes to be committed:
+            (use "git rm --cached <file>..." to unstage)
+                new file:   Sum.js
+
+ --------------------------------------------------------------------------------
+For commit :
+
+* git commit -m "initial commit"
+
+* git log     //  to check all commit
+
+--------------------------------------------------------------------------------
+
+if you have multiple files to add eg sum.js , diff.js then you can use following command to add all files
+
+* git add .
+
+-------------------------------------------------------------------------------------
+* git checkout hashcode
+  eg git checkout 4c4af06d39f07745e0272a4d79cc4b66e84e2c29
+   // the above command is use when you ant to go at your privious commits 
+   // you just put hash code of that commit 
+
+ * git checkout master 
+    // switch to master commit
+
+-----------------------------------------------------------------------------------
+Creating the branch 
+
+for creating the branch following command
+* git branch addBranchNameHere  eg git branch dev
+
+* git branch  // to check all branches
+* git checkout dev   // to go into this branch  
+
+---------------------------------------------------------------------------------
+Mearge to branches  
+
+master > dev > branch1 / branch2
+
+* git mearge branch1/branch2
+// this two branches mearge inside the dev , but master baranch no idea about the dev
+// so we have to run this command again for mearge into the master branch eg. git mearge dev
+
+------------------------------------------------------------------------------------------
+Make git ignore file 
+
+* touch.gitignore
+    //in our app there is some sensitive content like the keys which we dont want to shere with anyone 
+    // this type of file are ganaraly put into the git ignore , we can put git ignore file itself into the git ignore .
+    // you can directly create git ignore file into vs code by clicking on create new file.
+
+
+---------------------------------------------------------------------------------------------
+
+Push code to the git hub:
+
+* git remote -v  // first run this code 
+
+* git remote add origin https://github.com/nileshhshinde29/Lets-Learn-Git.git    // copy this code from git hub
+
+    you will see the folowing lines in terminals
+            origin	https://github.com/nileshhshinde29/Lets-Learn-Git.git (fetch)
+            origin	https://github.com/nileshhshinde29/Lets-Learn-Git.git (push)
+
+after that you should run the following two commands
+
+* git branch -M master
+
+* git push -u origin master
+
+Username for 'https://github.com': nileshhshinde29
+Password for 'https://nileshhshinde29@github.com': 
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
