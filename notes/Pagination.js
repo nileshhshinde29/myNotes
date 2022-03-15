@@ -31,16 +31,21 @@ function setItemsPerPagefun(e)
 }
 
 useEffect(()=>{
-setStart(itemsPerPage*currentPage)
-},[itemsPerPage,currentPage])
+  setStart(itemsPerPage*currentPage)
+  setEnd(itemsPerPage*currentPage + itemsPerPage)
+ },[itemsPerPage,currentPage])
 
-useEffect(()=>{
+// useEffect(()=>{
+// setStart(itemsPerPage*currentPage)
+// },[itemsPerPage,currentPage])
 
-const add =parseInt(start)+parseInt(itemsPerPage)
-// console.log("add"+add);
-  setEnd((add))
+// useEffect(()=>{
 
-},[start,itemsPerPage])
+// const add =parseInt(start)+parseInt(itemsPerPage)
+// // console.log("add"+add);
+//   setEnd((add))
+
+// },[start,itemsPerPage])
 
 function setCurrentPageFun(e)
 { console.log(e)
