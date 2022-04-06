@@ -25,16 +25,16 @@ useCallback Hook:
 
 - eg. 
   const displayName = () =>{
-      return name;
+      return setName('hello');
   }
 
   this function converted to useCallback in below
     
 const displayName = useCallback(()=>{
 
-    return name
+    return setName('hello')
 
-} , [Count] ) 
+} , [name] ) 
 
 the  useMemo  & useCallback hook nearly about same
 the useMemo use to  memorize the value , useCallback use to memorize function
