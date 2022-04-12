@@ -1,4 +1,46 @@
 useMemo hooks
+eg 
+
+
+    const [counter, setCounter] = useState(0)
+    
+    const [counter2, setCount2] = useState(1)
+    
+     const isEven = () => {
+         let i = 0;
+         while (i < 900000000)
+         {
+             i++
+         }
+        return counter % 2 ===0
+            
+    } 
+    
+   // const isEven = useMemo(() => {
+   //    let i = 0;
+   //  while (i < 900000000) {
+   //  i++;
+   //     }
+   //  return counter % 2 === 0;
+   //  }, [counter]); 
+
+  return (
+    <div>
+       <p>{counter}</p>
+          <span>{ isEven ? 'even' : 'Odd'}</span>
+      <p>{counter2}</p>
+      <button onClick={() => setCounter(counter + 1)}> Counter1</button>
+      <button onClick={() => setCount2(counter2 + 1)}> Counter2</button>
+    </div>
+  );
+}
+
+in above eg wen we update the count1 then is even function also run and it is slow because of while loop 
+ if we update count2 then also while loop run, 
+if we use the useMemo then if there is a change in Counter1 then it return new function otherwise it return memorise value
+
+
+
 
 - if our code contains a heavy function, and it runs at every render 
   because of that our code littel bit slower ,
