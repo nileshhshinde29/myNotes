@@ -110,6 +110,80 @@ eg. useTitleCount( count )
     the same common stateful logic (say a “setState” or localStorage logic),
     you can put that code inside a custom hook and reuse it.
 
+eg .2)
+    
+   function useFetch() {
+  
+    const [allData, setAllData] = useState({
+        data1: '',
+        data2: '',
+        data3: ''
+    })
+    
+    useEffect(() => {
+        dataFetching()
+    }, [])
+    
+    function dataFetching() {
+      const urls = [
+        "http://interviewapi.ngminds.com/api/getAllProducts",
+        "https://dog.ceo/api/breeds/image/random",
+        "http://interviewapi.ngminds.com/api/getAllProducts",
+      ];
+
+      //************************************** By using fetch ************************
+      Promise.all(urls.map((url) => fetch(url).then((res) => res.json())))
+        .then((res) =>
+          setAllData({
+            ...allData,
+            data1: res[0],
+            data2: res[1], // it directly  shows data , not need to .data
+          })
+        )
+        .catch((err) => console.log(err));
+
+      //*************************************** By using axios.get *********************** */
+
+      // Promise.all(
+      //     urls.map(url=>  axios.get(url))
+      // ).then(res => setAllData({
+      //     ...allData,
+      //     data1: res[0].data,
+      //     data2: res[1].data
+      // }))
+        
+        
+      //******************************* using fetch and  array inside ********************* */
+
+      //  Promise.all(
+      //         [
+      //             "http://interviewapi.ngminds.com/api/getAllProducts",
+      //             "https://dog.ceo/api/breeds/image/random",
+      //         ].map((url) =>
+      //             fetch(url)
+      //                 .then((res) => res.json())
+
+      //         )
+      //     ).then(res => setAllData({
+      //         ...allData,
+      //         data1: res[0],
+      //         data2: res[1]
+      //     })
+      //     ).catch(err=> console.log(err))
+      // }
+    }
+    
+        return( allData)
+    
+}
+
+export default useFetch
+
+    
+    
+    
+    
+
 ---------------------------------------------------------------------------------------------------------
 
 UseReduser hook
