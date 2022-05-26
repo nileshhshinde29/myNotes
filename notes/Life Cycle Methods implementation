@@ -1,0 +1,86 @@
+import react from "react"
+
+class myclass extends react.Component {
+
+constructor (){
+  super()
+  this.state = {
+    data: true,
+    delete: true,
+     name:"nilesh"
+  }
+  console.log("constuctor")
+}
+  
+  componentDidMount() {
+    console.log("Component Did Mount")
+  }
+
+  // shouldComponentUpdate() {
+  //   console.log("shoudupdate");
+  //   return false
+    
+  // }
+
+  componentDidUpdate() {
+    console.log("componentDidUpdate")
+  }
+
+  render()
+  {
+    return (
+      <>
+        {console.log("in return")}
+        <Component1 data={this.state.data} />
+        {this.state.delete ? '': <Component2/>}
+        <button onClick={() => this.setState({ name: "name2" })}>Button</button>
+        <button onClick={() => this.setState({ data: !this.state.data })}>cUpdate</button>
+         <button onClick={() => this.setState({ delete: !this.state.delete })}>delete</button>
+      </>
+    );
+    }
+}
+
+class Component1 extends react.Component{
+
+  constructor() {
+    
+    }
+
+
+  shouldComponentUpdate(nextProps) {
+
+
+    if (JSON.stringify(nextProps.data) !== JSON.stringify(this.props.data))
+      return true;
+    else return false;
+      
+      
+  }
+  render() {
+    return (<>
+    {console.log("component is updated")}
+    </>)
+  }
+
+}
+
+class Component2 extends react.Component{
+
+
+  
+  componentWillUnmount(){
+    alert("Component Unmount Successfully")
+  }
+
+  render() {
+    
+    return (
+      <>
+      Component2
+      </>
+    )
+  }
+}
+
+export default myclass;
