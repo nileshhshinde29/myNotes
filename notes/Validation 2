@@ -1,0 +1,81 @@
+import React, { useEffect, useState } from 'react'
+
+function UserList() {
+    const [form, setForm] = useState({}) as any
+    const [touched , setTouched]=useState(false)
+    const [formErrors, setFormErrors] = useState({}) as any
+
+    useEffect(() => {
+        if (touched) {
+            setFormErrors(validate(form))
+        }
+    }, [form])
+
+
+    const handleSubmit = (e: any) => {
+      
+        e.preventDefault();
+           setFormErrors(validate(form));
+              setTouched(true)
+                if (Object.keys(validate(form)).length == 0) {
+                   setTouched(false)
+                      console.log("submited");
+                      setForm({ fName: '', lName: '', age: '', dob: '' })
+        }
+    }
+    
+
+    const validate = (values: any) => {
+
+        const errors = {} as any;
+        const {fName , lName, age, dob }= form 
+
+        if (!fName) {
+            errors.fName = "question text is require";
+        }
+        if (!lName) {
+            errors.lName = "password is require";
+        }
+        if (!age) {
+            errors.age = "password is require";
+        }
+        if (!dob) {
+            errors.dob = "password is require";
+        }
+        return errors;
+    };
+
+
+    return (
+        <form onSubmit={(e) => handleSubmit(e)}>
+            <input
+                style={{ borderColor: formErrors?.fName ? 'red' : 'green' }}
+                placeholder='First Name'
+                value={form.fName}
+                onChange={(e) => {setForm({ ...form, fName: e.target.value });}}
+            /><br />
+            <br />
+            <input
+                style={{ borderColor: formErrors?.lName ? 'red' : 'green' }}
+                placeholder='Last Name'
+                value={form.lName}
+                onChange={(e) => setForm({ ...form, lName: e.target.value })}
+            /><br /><br />
+            <input
+                style={{ borderColor: formErrors?.age ? 'red' : 'green' }}
+                placeholder='Age'
+                value={form.age}
+                onChange={(e) => setForm({ ...form, age: e.target.value })}
+            /><br /><br />
+            <input
+                style={{ borderColor: formErrors?.dob ? 'red' : 'green' }}
+                placeholder='Date of Birth'
+                value={form.dob}
+                onChange={(e) => setForm({ ...form,dob:e.target.value })}
+            /><br /><br />
+            <button type="submit">Submit</button>
+        </form>
+    )
+}
+
+export default UserList
