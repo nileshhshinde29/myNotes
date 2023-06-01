@@ -1,4 +1,4 @@
-Hi may name is __. I have been working in angular minds company since 1 year.
+Hi my name is __. I have been working in angular minds company since 1 year.
 More than 1 years I have been working as a react developer. I have hands on experience of react redux, hooks and functional components.
 I am also familiar with node js.
 I have worked on ATS project. Its an application tracking system.
