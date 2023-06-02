@@ -1,25 +1,29 @@
 import logo from './logo.svg';
+import React, { useCallback, useState } from 'react'
 import './App.css';
+import useChild from './Child';
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [name, setname] = useState('')
+
+  const handleClick = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, [name]);
+  const { data } = useChild('https://todo-backend-rest.onrender.com/todos')
+  console.log('....', data);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>Count: {count}</p>
+      <input value={name} onChange={(e) => setname(e.target.value)} />
+
+      <button onClick={() => setCount(prev => prev + 1)}>btn</button>
     </div>
   );
-}
+};
+
+
 
 export default App;
