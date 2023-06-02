@@ -1,9 +1,10 @@
 RestOperator
+=>  used as function argument to represent an number of arguments as an array.
 
         function sum(a, b,...arg)
         {
             console.log(arg)      // it returns an array [3,4,5]
-        }                          // the rest operator convert list of items into an array 
+        }                         // the rest operator convert list of items into an array 
 
         sum(1,2,3,4,5)
  eg.2
@@ -14,6 +15,7 @@ RestOperator
          console.log(rest)       // [3,4,5,6,7,8,5]
       
 //***************************************************************
+
 Spread operator
 
      eg1---
@@ -30,7 +32,7 @@ Spread operator
 
         a.push(7);
         console.log(a); // [1, 2, 3, 7]
-        console.log(c); // [1, 2, 3, 4, 5, 6]        rest operator make copy of elements and if we update a 
+        console.log(c); // [1, 2, 3, 4, 5, 6]        rest operator make shallow copy of elements and if we update a 
                                                 //   it will not upadate the c
         ---                                
         //Spread Operator converts array into list of items 
