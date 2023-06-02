@@ -1,25 +1,48 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
 
-export const counterSlice = createSlice({
-    name: 'counter',
-    initialState: {
-        value: 0,
-    },
-    reducers: {
-        increment: (state) => {
+const initialState = {
+    loading: false,
+    todos: [],
+    value: 0,
 
-            state.value += 1
-        },
-        decrement: (state) => {
-            state.value -= 1
-        },
-        incrementByAmount: (state, action) => {
-            state.value += action.payload
-        },
-    },
+}
+
+export const fetchTodos = createAsyncThunk('fetchToodos', async () => {
+    const todos = await axios.get("https://todo-backend-rest.onrender.com/todos").then(res => { return res.data }).catch(e => console.log(e))
+    return todos
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
-export default counterSlice.reducer
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState,
+    reducers: {
+        increment: (state) => {
+            state.value += 1;
+        },
+        decrement: (state) => {
+            state.value -= 1;
+        }
+
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchTodos.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchTodos.fulfilled, (state, action) => {
+                state.loading = false;
+                state.todos = action.payload
+            })
+            .addCase(fetchTodos.rejected, (state) => {
+                state.loading = false
+            })
+
+    }
+
+
+})
+
+export const { increment, decrement } = counterSlice.actions;
+export default counterSlice.reducer;
