@@ -32,7 +32,7 @@ Spread operator
 
         a.push(7);
         console.log(a); // [1, 2, 3, 7]
-        console.log(c); // [1, 2, 3, 4, 5, 6]        rest operator make copy of elements and if we update a 
+        console.log(c); // [1, 2, 3, 4, 5, 6]        rest operator make shallow copy of elements and if we update a 
                                                 //   it will not upadate the c
         ---                                
         //Spread Operator converts array into list of items 

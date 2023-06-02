@@ -87,19 +87,69 @@ the useMemo use to  memorize the value , useCallback use to memorize function
 
 Custom Hook
 
-const useTitleCount= (count)=>{
-    useEffect(()=>{
-        if(count>=1)
-        {
-            document.title= `title ${ count }`
-        }
-        else
-        {
-             document.title= `title`
-        }
+import { useState, useEffect } from 'react';
 
-    }, [ count ])
-}
+const useFetchData = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        setData(jsonData);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+};
+
+export default useFetchData;
+
+
+
+import React from 'react';
+import useFetchData from './useFetchData';
+
+const MyComponent = () => {
+  const { data, loading, error } = useFetchData('https://api.example.com/data');
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  return (
+    <div>
+      {/* Render the fetched data */}
+    </div>
+  );
+};
+
+export default MyComponent;
+In this example, the MyComponent component uses the useFetchData hook to fetch data from the specified URL. While the data is being fetched, the loading state is true, and a loading message is rendered. If an error occurs during the fetch, the error state is set, and an error message is displayed. Otherwise, the fetched data can be rendered within the component as needed.
+
+By creating custom hooks, you can encapsulate and reuse logic across different components, promoting code reusability and keeping your component code clean and focused.
+
+
+
+
+
+
+
+
 
 make this an separate component whenever require just import it and  use it
 
