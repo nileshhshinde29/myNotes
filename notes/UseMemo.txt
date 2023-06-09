@@ -278,8 +278,8 @@ const UseReduser =()=> {
 
     return (
 
-        <button onclick={ ()+.dispatch({type : "INCREMENT" })}>inc <button>
-        <button onclick={ ()+.dispatch({type : "DECRIMENT" })}>Dec <button>
+        <button onClick={ ()=>dispatch({type : "INCREMENT" })}>inc <button>
+        <button onClick={ ()=>dispatch({type : "DECRIMENT" })}>Dec <button>
 
     )
 }
