@@ -1,15 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-import WrappedComp1 from './WrappedComp1';
-import WrappedComp2 from './WrappedComp2';
-import CounterApp from './counter/CounterApp';
-
+import axios from 'axios';
+import React, { Suspense, useEffect, useReducer, useRef, useState } from 'react'
+import Component1 from './Component1';
+import { AppNavigator } from './AppNavigator';
 function App() {
+
+
+
+
+
   return (
-    <div className="App">
-      <CounterApp />
-    </div>
-  );
+    <>
+      <Suspense fallback={<>Loading</>}>
+        <AppNavigator />
+      </Suspense>
+    </>
+  )
 }
 
 export default App;
