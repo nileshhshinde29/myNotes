@@ -1,0 +1,8 @@
+Good morning,
+         thank u so much for asking me about myself.
+         My name is Nilesh Shinde. I am a Software engineer. I have one year of experience of working with react js.
+         I have strong knowledge of react js, react hooks, and functional components.I am also familiar with node js.
+         I have been working in angular minds company.
+         Angular Minds is a leading software company specializing in cutting-edge solutions.
+         We use advanced technologies to address specific business needs, ensuring client satisfaction.
+         During my time at Angular Minds, I have worked on multiple projects, including ATS (Application Tracking System).
