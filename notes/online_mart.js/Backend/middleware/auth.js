@@ -9,13 +9,14 @@ const auth = async (req, res, next) => {
 
     try {
         let newToken = token.split(" ")[1]
-        console.log(newToken);
         jwt.verify(newToken, process.env.SECRET_JWT_KEY, (err, decode) => {
             if (err) {
-                console.log(err);
                 return res.status(401).json({ message: 'Authentication failed!' })
             }
-            req.user = decode.user
+            req.user = {
+                user: decode.user,
+                token: newToken
+            }
             return next()
         })
     } catch (error) {

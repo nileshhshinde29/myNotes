@@ -1,4 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
+import { get, post } from '../Http.service/http.service'
 
 let currentUserFromStorage
 const currentUserSubject = new BehaviorSubject(currentUserFromStorage || undefined);
@@ -18,6 +19,7 @@ try {
 
 
 export const authenticationService = {
+    login,
     logout,
     loadCurrentUser,
     currentUser: currentUserSubject.asObservable(),
@@ -25,6 +27,24 @@ export const authenticationService = {
         return currentUserSubject.value;
     },
 };
+
+async function login(data) {
+    await post('/user/login', data)
+        .then(response => {
+            // Cookie.set('_token', response.token, { path: '/' })
+            localStorage.setItem('currentUser', JSON.stringify(response))
+
+            currentUserSubject.next(response)
+
+            // currentOrganizationSubject.next(response.user._org[0])
+
+            if (response.user) {
+                // history.push(paths.defaultPostLogin)
+            }
+            return response
+        })
+
+}
 
 function logout() {
 
@@ -41,8 +61,10 @@ function logout() {
 }
 
 function loadCurrentUser() {
-    localStorage.setItem('currentUser', JSON.stringify('set by loadCurrentUser Function'));
-    currentUserSubject.next('set by loadCurrentUser Function');
-    // currentOrganizationSubject.next(response._org[0])
+    get(`/user/self`).then((response) => {
+        localStorage.setItem('currentUser', JSON.stringify(response.token))
+        currentUserSubject.next(response)
+        // currentOrganizationSubject.next(response._org[0])
+    }).catch(err => logout())
 }
 

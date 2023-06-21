@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors');
 
 const contactRoute = require('./routes/contactRoute')
 const userRoute = require('./routes/userRoute')
@@ -9,6 +10,8 @@ const userRoute = require('./routes/userRoute')
 
 //------------------------------------------
 app.use(express.json()) // parse the date that we receive form client side to server side.
+
+app.use(cors())
 
 app.use('/contact', contactRoute)
 app.use('/user', userRoute)
