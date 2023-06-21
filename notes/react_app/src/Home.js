@@ -1,19 +1,13 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { authenticationService } from './auth.service'
+import { forwardRef } from 'react'
 
-function Home() {
-    const navigate = useNavigate()
+function Home(props, ref) {
 
-    const logout = () => {
-        authenticationService.logout()
-        navigate('/login')
-    }
-    return (<>
-        <div>Home</div>
-        <button onClick={() => logout()}>logout</button>
-    </>
+    return (
+        <>
+            <input placeholder="In home component" ref={ref} />
+        </>
     )
 }
 
-export default Home
+export default forwardRef(Home)
