@@ -1,20 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
 import React, { Suspense, useEffect, useReducer, useRef, useState } from 'react'
-import Component1 from './Component1';
-import { AppNavigator } from './AppNavigator';
+import Home from './Home';
 function App() {
 
-
-
-
+  const myRef = useRef()
+  const focus = () => {
+    myRef.current.focus()
+  }
 
   return (
     <>
-      <Suspense fallback={<>Loading</>}>
-        <AppNavigator />
-      </Suspense>
+      <input ref={myRef} />
+      <Home ref={myRef} />
+      <button onClick={() => focus()} >button</button>
     </>
   )
 }
