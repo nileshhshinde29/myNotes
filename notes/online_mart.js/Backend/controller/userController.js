@@ -32,11 +32,13 @@ const register = asyncHandler(async (req, res) => {
 const login = asyncHandler(async (req, res) => {
 
     const { email, password } = req.body;
+    console.log(req.body)
     if (!email || !password) {
         return res.status(400).json('All fields are mandatory!')
     }
 
-    const user = await User.findOne({ email })
+    const user = await User.findOne({ email: email })
+    console.log(user)
     if (!user) {
         return res.status(400).json('Please provide valid information')
     }
@@ -50,7 +52,7 @@ const login = asyncHandler(async (req, res) => {
                 user: {
                     email, id: user.id
                 }
-            }, process.env.SECRET_JWT_KEY, { expiresIn: "60m" }
+            }, process.env.SECRET_JWT_KEY, { expiresIn: "1d" }
             )
             return res.status(200).json(accessToken)
         }

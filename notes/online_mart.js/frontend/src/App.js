@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React, { Suspense } from 'react'
 import { AppNavigator } from './AppNavigator/AppNavigator';
 

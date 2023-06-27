@@ -1,0 +1,18 @@
+$primary-color: #232828 !important;
+$primary-light: #efe9e7;
+$secondary-color: hsl(180, 10%, 26%) !important;
+$tertiary-color: #C7511F !important;
+
+$primary-button: #C7511F;
+$icon-color :#ba790a !important;
+
+
+
+
+
+// this export used only when we have to style in js component.
+:export {
+    primaryColor: $primary-color;
+    secondaryColor: $secondary-color;
+    iconColor: $icon-color;
+}

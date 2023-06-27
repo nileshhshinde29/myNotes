@@ -4,7 +4,8 @@ const cors = require('cors');
 
 const contactRoute = require('./routes/contactRoute')
 const userRoute = require('./routes/userRoute')
-
+const productRoute = require('./routes/productRoute')
+const categoryRoute = require('./routes/categoryRoute')
 
 
 
@@ -15,9 +16,12 @@ app.use(cors())
 
 app.use('/contact', contactRoute)
 app.use('/user', userRoute)
+app.use('/product', productRoute)
+app.use('/category', categoryRoute)
+
 
 app.use((req, res, next) => {
-    res.status(200).json({
+    res.status(404).json({
         message: 'Default running'
     })
 })

@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+
+.secondary-nav {
+    span {
+        &.web-view {
+            span {
+                margin: 15px;
+                color: $primary-light;
+            }
+        }
+    }
+
+    span {
+        &.mobile-view {
+
+            span,
+            input {
+                margin: 15px;
+                color: $primary-light;
+            }
+        }
+    }
+
+    height: 40px;
+    background-color: $secondary-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media only screen and (min-width: 599px) {
+    .mobile-view {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    .web-view {
+        display: none;
+    }
+}
