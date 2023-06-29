@@ -15,25 +15,42 @@ const getProducts = async (req, res) => {
 }
 
 const createProduct = async (req, res) => {
+    console.log(req.body)
 
-    const { productName, productDetails, image, category } = req.body
+    try {
+        let images = [];
 
-    if (!productName || !productDetails || !category) {
-        res.status(400);
-        throw new Error('validation error')
+        if (req.files?.length > 0) {
+            images = req.files.map((file) => {
+                return { img: file.filename };
+            });
+        }
+
+
+        const { productName, productDetails, category } = req.body
+
+        if (!productName || !productDetails || !category) {
+            res.status(400);
+            throw new Error('validation error')
+        }
+        const product = await Product.create({
+            images,
+            productName,
+            productDetails,
+            added_by: req.user.user.id,
+            category_id: category
+        })
+
+        console.log(product)
+        res.status(200).json(product)
+    } catch (error) {
+        res.status(400).json(error)
     }
-    const product = await Product.create({
-        image,
-        productName,
-        productDetails,
-        added_by: req.user.user.id,
-        category_id: category
-    })
-    res.status(200).json(product)
 }
 
 const getProductsByCategory = async (req, res) => {
     const { category } = req.body;
+    console.log(req.body)
     try {
         Product.find({ category_id: category })
             .populate('added_by', 'username')
