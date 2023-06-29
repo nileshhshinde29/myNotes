@@ -6,6 +6,7 @@ const contactRoute = require('./routes/contactRoute')
 const userRoute = require('./routes/userRoute')
 const productRoute = require('./routes/productRoute')
 const categoryRoute = require('./routes/categoryRoute')
+const sendMail = require('./middleware/mailSender')
 
 
 
@@ -18,6 +19,7 @@ app.use('/contact', contactRoute)
 app.use('/user', userRoute)
 app.use('/product', productRoute)
 app.use('/category', categoryRoute)
+app.get('/send-email', sendMail) // ethereal mail sender
 
 
 app.use((req, res, next) => {
