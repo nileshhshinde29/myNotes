@@ -13,11 +13,12 @@ import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
+import { useNavigate } from 'react-router-dom';
 
 
 function Sidebar() {
-    console.log('variable ', variable)
     const [open, setOpen] = React.useState(true);
+    const navigate = useNavigate()
 
     const handleClick = () => {
         setOpen(!open);
@@ -30,42 +31,43 @@ function Sidebar() {
                 component="nav"
                 aria-labelledby="nested-list-subheader"
             >
+                <ListItemButton onClick={() => navigate('/home')}>
+                    <ListItemIcon>
+                        <SendIcon sx={{ color: variable.iconColor }} />
+                    </ListItemIcon>
+                    <ListItemText primary="Dashboard" />
+                </ListItemButton>
+                <ListItemButton >
+                    <ListItemIcon>
+                        <DraftsIcon sx={{ color: variable.iconColor }} />
+                    </ListItemIcon>
+                    <ListItemText primary="Profile" />
+                </ListItemButton>
+                <ListItemButton onClick={() => navigate('/cart')}>
+                    <ListItemIcon>
+                        <SendIcon sx={{ color: variable.iconColor }} />
+                    </ListItemIcon>
+                    <ListItemText primary="Cart" />
+                </ListItemButton>
                 <ListItemButton>
                     <ListItemIcon>
                         <SendIcon sx={{ color: variable.iconColor }} />
                     </ListItemIcon>
-                    <ListItemText primary="Sent mail" />
+                    <ListItemText primary="My Orders" />
                 </ListItemButton>
                 <ListItemButton>
                     <ListItemIcon>
                         <DraftsIcon sx={{ color: variable.iconColor }} />
                     </ListItemIcon>
-                    <ListItemText primary="Drafts" />
-                </ListItemButton>
-                <ListItemButton>
-                    <ListItemIcon>
-                        <SendIcon sx={{ color: variable.iconColor }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Sent mail" />
+                    <ListItemText primary="Previous Orders" />
                 </ListItemButton>
                 <ListItemButton>
                     <ListItemIcon>
                         <DraftsIcon sx={{ color: variable.iconColor }} />
                     </ListItemIcon>
-                    <ListItemText primary="Drafts" />
-                </ListItemButton><ListItemButton>
-                    <ListItemIcon>
-                        <SendIcon sx={{ color: variable.iconColor }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Sent mail" />
+                    <ListItemText primary="Customer Service" />
                 </ListItemButton>
-                <ListItemButton>
-                    <ListItemIcon>
-                        <DraftsIcon sx={{ color: variable.iconColor }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Drafts" />
-                </ListItemButton>
-                <ListItemButton onClick={handleClick}>
+                {/* <ListItemButton onClick={handleClick}>
                     <ListItemIcon>
                         <InboxIcon sx={{ color: variable.iconColor }} />
                     </ListItemIcon>
@@ -81,7 +83,7 @@ function Sidebar() {
                             <ListItemText primary="Starred" />
                         </ListItemButton>
                     </List>
-                </Collapse>
+                </Collapse> */}
             </List>
         </Card>
     )

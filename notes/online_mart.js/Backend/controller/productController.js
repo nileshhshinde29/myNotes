@@ -38,10 +38,11 @@ const createProduct = async (req, res) => {
             productName,
             productDetails,
             added_by: req.user.user.id,
-            category_id: category
-        })
+            category_id: category,
 
-        console.log(product)
+        })
+        console.log(images)
+
         res.status(200).json(product)
     } catch (error) {
         res.status(400).json(error)

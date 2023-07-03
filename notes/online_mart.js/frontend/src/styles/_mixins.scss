@@ -50,3 +50,55 @@
     // box-shadow: rgba(226, 231, 236, 0.5) 0 0 0 3px;
     outline: none;
 }
+
+
+@mixin secondary-btn {
+    background-image: linear-gradient(#c98c2a, $secondary-button);
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: $primary-color;
+}
+
+.btn-secondary {
+    @include secondary-btn;
+    border: 1px solid #edc898;
+    border-radius: 4px;
+    box-sizing: border-box;
+    direction: ltr;
+
+    font-size: 12px;
+    letter-spacing: -.022em;
+    line-height: 1.47059;
+    min-width: 30px;
+    overflow: visible;
+    padding: 2px 15px;
+    text-align: center;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.btn-secondary:disabled {
+    cursor: default;
+    opacity: .3;
+}
+
+.btn-secondary:hover {
+    background-image: linear-gradient(#ecc88a, $primary-button);
+    border-color: #eda758;
+    text-decoration: none;
+}
+
+.active {
+    background-image: linear-gradient(#ecc88a, $primary-button);
+    border-color: #edc946;
+    outline: none;
+}
+
+.btn-secondary:focus {
+    box-shadow: rgba(226, 231, 236, 0.5) 0 0 0 3px;
+    outline: none;
+}

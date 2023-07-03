@@ -19,9 +19,14 @@ const sendMail = async (req, res) => {
         subject: "Order placed", // Subject line
         text: "Your order has been placed. You will get your order at your address very soon", // plain text body
         html: "<p>Your order has been placed. You will get your order at your address very soon<p/><button>NHS mart</button>", // html body
+        attachments: [
+            {
+                filename: 'image.jpg', // The name you want the file to be saved as when it is received
+                path: '/home/am-pc-63/NHS/React/react_Interview_notes_prectice/myNotes/notes/online_mart.js/Backend/assets/image.jpg' // The path to the image file on your server
+            }
+        ]
     });
 
-    console.log("Message sent: %s", info.messageId);
     res.json(info);
 };
 

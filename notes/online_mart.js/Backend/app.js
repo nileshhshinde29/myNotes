@@ -7,6 +7,8 @@ const userRoute = require('./routes/userRoute')
 const productRoute = require('./routes/productRoute')
 const categoryRoute = require('./routes/categoryRoute')
 const sendMail = require('./middleware/mailSender')
+const profileRoute = require('./routes/profileRoute')
+const AggregationDBRoute = require('./routes/aggregationRoute')
 
 
 
@@ -15,11 +17,14 @@ app.use(express.json()) // parse the date that we receive form client side to se
 
 app.use(cors())
 
+app.use('/aggregate', AggregationDBRoute)
 app.use('/contact', contactRoute)
 app.use('/user', userRoute)
 app.use('/product', productRoute)
 app.use('/category', categoryRoute)
+app.use('/profile', profileRoute)
 app.get('/send-email', sendMail) // ethereal mail sender
+
 
 
 app.use((req, res, next) => {
