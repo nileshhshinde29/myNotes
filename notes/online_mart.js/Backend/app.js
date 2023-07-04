@@ -9,6 +9,7 @@ const categoryRoute = require('./routes/categoryRoute')
 const sendMail = require('./middleware/mailSender')
 const profileRoute = require('./routes/profileRoute')
 const AggregationDBRoute = require('./routes/aggregationRoute')
+const path = require('path')
 
 
 
@@ -16,7 +17,7 @@ const AggregationDBRoute = require('./routes/aggregationRoute')
 app.use(express.json()) // parse the date that we receive form client side to server side.
 
 app.use(cors())
-
+app.use('/images', express.static(path.join(__dirname, "uploads")));
 app.use('/aggregate', AggregationDBRoute)
 app.use('/contact', contactRoute)
 app.use('/user', userRoute)
