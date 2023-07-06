@@ -1,6 +1,9 @@
 
 const AggregateDB = require('../model/aggrigationSchema')
 
+const queriesPrectice = async (req, res) => {
+
+}
 const aggregateFunction = async (req, res) => {
     try {
         /* const categories = await AggregateDB.aggregate([{
@@ -72,7 +75,7 @@ const aggregateFunction = async (req, res) => {
     // res.status(200).json(contacts);
 }
 
-module.exports = { aggregateFunction }
+module.exports = { aggregateFunction, queriesPrectice }
 
 
 

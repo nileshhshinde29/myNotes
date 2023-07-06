@@ -9,6 +9,7 @@ const categoryRoute = require('./routes/categoryRoute')
 const sendMail = require('./middleware/mailSender')
 const profileRoute = require('./routes/profileRoute')
 const AggregationDBRoute = require('./routes/aggregationRoute')
+const queriesRoute = require('./routes/quriesRoute')
 const path = require('path')
 
 
@@ -24,6 +25,7 @@ app.use('/user', userRoute)
 app.use('/product', productRoute)
 app.use('/category', categoryRoute)
 app.use('/profile', profileRoute)
+app.use('/queries', queriesRoute)
 app.get('/send-email', sendMail) // ethereal mail sender
 
 
