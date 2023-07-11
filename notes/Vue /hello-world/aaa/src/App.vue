@@ -1,5 +1,6 @@
 <template>
-  <div>{{ name }}{{ mobile }}</div>
+  <div>
+    <!--  <div>{{ name }}{{ mobile }}</div>
   <div v-text="mobile"></div>
   <div v-html="address"></div>
   <div v-bind:id="id"></div>
@@ -22,10 +23,21 @@
     Inline Style
   </h2>
 
-  <div v-bind:style="[baseStyleObject, successStyleObject]">style</div>
-  <div></div>
-  <div></div>
-</template>
+  <div v-bind:style="[baseStyleObject, successStyleObject]"> style</div> -->
+    <h2 v-if="num === 0">The number is zero</h2>
+    <h2 v-else-if="num > 0">The number is positive</h2>
+    <h2 v-else-if="num < 0">The number is negative</h2>
+    <h2 v-else>The number is not number</h2>
+    <h2 v-show="show">Show using v-show</h2>
+    <div v-for="(item, index) in names" :key="index">{{ item }}</div>
+    <h2 v-for="(value, key, index) in myInfo" :key="value">
+      {{ index }} {{ key }} {{ value }}
+    </h2>
+    <h2></h2>
+    <h2></h2>
+    <div></div>
+  </template>
+</div>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
@@ -50,6 +62,12 @@ export default {
         color: "green",
         backgroundColor: "lightgreen",
         border: "1px solid green",
+      },
+      num: -1,
+      names: ["nilesh", "shrikant", "akshay"],
+      myInfo: {
+        name: "nilesh",
+        lastName: "shinde",
       },
     };
   },
