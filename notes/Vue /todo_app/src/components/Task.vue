@@ -7,7 +7,6 @@
 
     <div v-if="task.reminder" class="circle"></div>
   </div>
-  <br />
 </template >
 <script>
 export default {
@@ -26,6 +25,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
   width: 200px;
+  margin: 10px auto 10px auto;
 }
 .circle {
   height: 5px;
