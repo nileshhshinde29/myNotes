@@ -1,4 +1,4 @@
-# resume_builder-vue
+# lyfcycle_hooks
 
 ## Project setup
 ```
