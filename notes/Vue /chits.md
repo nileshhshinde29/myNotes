@@ -4,16 +4,15 @@
 
 
 **2. How does Vue.js differ from other frameworks like React and Angular?**
-
-lightweight compared to Angular,
-easier to learn and use.
-simpler syntax.
+-lightweight compared to Angular,
+-easier to learn and use.
+-simpler syntax.
 
 
 
 **0. What is the Vue instance?**
-is the root of a Vue application. 
-It serves as the entry point for a Vue component. 
+-is the root of a Vue application. 
+-It serves as the entry point for a Vue component. 
 
 
 
@@ -26,9 +25,9 @@ It serves as the entry point for a Vue component.
 
 
 **4. What is the purpose of the Vue router?**
--The Vue router is a routing library for Vue.js 
--that allows you to create single-page applications with multiple views. 
--It enables navigation between different components without full page reloads.
+- The Vue router is a routing library for Vue.js 
+- that allows you to create single-page applications with multiple views. 
+- It enables navigation between different components without full page reloads.
 
 
 
@@ -49,14 +48,14 @@ It serves as the entry point for a Vue component.
 
 
 **7. How does Vue.js support form input validation?**
-Vue.js provides a built-in form input validation mechanism through the v-model directive, along with the use of HTML5 validation attributes like required, min, max, etc. Additionally, you can define custom validation logic using computed properties or methods.
+- Vue.js provides a built-in form input validation mechanism through the v-model directive, along with the use of HTML5 validation attributes like required, min, max, etc. Additionally, you can define custom validation logic using computed properties or methods.
 
 
 
 **8. Explain Vue.js single-file components (SFC).**
-    -Combination of HTML, JavaScript, and CSS code, all in a single file.
-    -They encapsulate the template, script, and style of a component.
-    -easy to manage and reuse components.
+- Combination of HTML, JavaScript, and CSS code, all in a single file.
+- They encapsulate the template, script, and style of a component.
+- easy to manage and reuse components.
 
 
 
@@ -67,33 +66,33 @@ Vue.js provides the v-on directive to handle user input and events. By attaching
 
 
 **10. How can you optimize the performance of a Vue.js application?**
-    -minimize unnecessary re-rendering.
-    -lazy-loading components.
-    -code splitting. 
-    -remove unnecessary watchers.
+- minimize unnecessary re-rendering.
+- lazy-loading components.
+- code splitting. 
+- remove unnecessary watchers.
 
 
 
 
-**11. Explain the concept of Vue.js mixins.**
-    -reusable code blocks.
-    - used to reduce same code. 
-    - allow you to share functionality, computed properties, methods, and lifecycle hooks among different components.
+**11. Explain the concept of Vue.js mixins** 
+- reusable code blocks.
+- used to reduce same code. 
+- allow you to share functionality, computed properties, methods, and lifecycle hooks among different components.
 
 
 
 
 **12. How can you handle asynchronous operations in Vue.js?**
-    -Promises or async/await within methods or computed properties.
-    -Using lifecycle hooks 
-    -Using Axios for Http requests.
+- Promises or async/await within methods or computed properties.
+- Using lifecycle hooks 
+- Using Axios for Http requests.
 
 
 
 
 **13. What are slots in Vue.js?**
-    -Template that allow you to insert content from the parent component.
-    -They provide a way to create flexible and reusable components.
+- Template that allow you to insert content from the parent component.
+- They provide a way to create flexible and reusable components.
 
 
 
@@ -104,56 +103,56 @@ The Vue.js transition component enables you to add animations and transitions to
 
 
 **15. Explain the concept of dynamic components in Vue.js.**
-    -Allows dynamically switch between multiple components based on a condition 
-    -By using v-if, v-else, v-show.
+- Allows dynamically switch between multiple components based on a condition 
+- By using v-if, v-else, v-show.
 
 
 
 **16. What is the purpose of the Vue.js ref attribute?**
-    -Allows you to get a reference to a specific element.
-    -Useful when you need to DOM directly.
+- Allows you to get a reference to a specific element.
+- Useful when you need to DOM directly.
 
 
 
 **17. How can you handle errors or exceptions in Vue.js?**
-    - try catch
+- try catch
 
 
 
 **18. Explain the concept of Vue.js plugins.**
-    -we can install multiple packages for adding additional features, directives, components,
-    -eg Vue router, vuex.
+- we can install multiple packages for adding additional features, directives, components,
+- eg Vue router, vuex.
 
 
 
 
 **19. What is the purpose of the Vue.js nextTick method?**
-    -This method will run after the DOM has been updated.
-    -You can safely access updated DOM elements or components
-    -and perform additional tasks after the reactivity cycle.
-    -For example, you can access DOM elements using refs
+- This method will run after the DOM has been updated.
+- You can safely access updated DOM elements or components
+- and perform additional tasks after the reactivity cycle.
+- For example, you can access DOM elements using refs
 
 
 
 
 **20. Explain the concept of scoped styles in Vue.js.**
-    -Allows you to style specific component.
-    -Have to add scoped tag in style.
+- Allows you to style specific component.
+- Have to add scoped tag in style.
     
 
 
 
 **21. What is the purpose of the vue-cli (Vue Command Line Interface)?**
-   -Command line tool to create basic structure of files for vue.js.
-   -Provides efficient way to set up project templates, manage dependencies.
+- Command line tool to create basic structure of files for vue.js.
+- Provides efficient way to set up project templates, manage dependencies.
 
 
 
 
 **22. Explain the concept of server-side rendering (SSR) in Vue.js.**
-    - Allows you to render Vue components on the server and send the pre-rendered HTML to the client.
-    - improves initial page load performance.
-    - Improves search engine optimization (SEO) 
+- Allows you to render Vue components on the server and send the pre-rendered HTML to the client.
+- improves initial page load performance.
+- Improves search engine optimization (SEO) 
 
 
 
@@ -166,9 +165,9 @@ Route-based code splitting in Vue.js involves dynamically loading components or 
 
 
 **24. What are the differences between Vue.js 2.x and Vue.js 3.x?**
-    -Improved performance 
-    -Smaller bundle size.
-    -Introduces a Composition API.
+- Improved performance 
+- Smaller bundle size.
+- Introduces a Composition API.
     
 
 
@@ -184,9 +183,9 @@ Vue.js render functions allow you to programmatically generate the DOM structure
 
 
 **27. Two way data binding.**
-    -keeps the UI and data model synchronized.
-    -When the user interacts with the UI, the data model is updated automatically. 
-    -changes to the data model are reflected instantly in the UI.
+- keeps the UI and data model synchronized.
+- When the user interacts with the UI, the data model is updated automatically. 
+- changes to the data model are reflected instantly in the UI.
 
 
 #################
