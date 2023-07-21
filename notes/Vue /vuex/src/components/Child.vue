@@ -61,6 +61,7 @@ export default {
     changeName() {
       // this.$store.commit('setNewName', 'Nilesh shinde')
       // this.$store.state.name = "Nilesh Shinde"
+
       this.setNewName('set by map Mutation')
     },
 
