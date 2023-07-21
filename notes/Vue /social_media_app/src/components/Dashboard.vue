@@ -2,14 +2,15 @@
   
 
 <div class="sidenav">
- <span href="#about"> <font-awesome-icon icon="house" /> &nbsp; Home</span>
-  <span href="#services"><font-awesome-icon icon="magnifying-glass" /> &nbsp; Search</span>
-  <span href="#clients"><font-awesome-icon icon="paper-plane" /> &nbsp; Explore</span>
-  <span href="#contact"><font-awesome-icon icon="film" /> &nbsp; Reels</span>
-  <span href="#contact"><font-awesome-icon icon="message" /> &nbsp; Messages</span>
-  <span href="#contact"><font-awesome-icon icon="bell" /> &nbsp; Notifications</span>
-  <span href="#contact"><font-awesome-icon icon="video" /> &nbsp; Create</span>
-  <span href="#contact"><font-awesome-icon icon="user" /> &nbsp; Profile</span>
+    <span href="#about"> <font-awesome-icon icon="house" /> &nbsp; Home</span>
+    <span href="#services"><font-awesome-icon icon="magnifying-glass" /> &nbsp; Search</span>
+    <span href="#clients"><font-awesome-icon icon="paper-plane" /> &nbsp; Explore</span>
+    <span href="#contact"><font-awesome-icon icon="film" /> &nbsp; Reels</span>
+    <span href="#contact"><font-awesome-icon icon="message" /> &nbsp; Messages</span>
+    <span href="#contact"><font-awesome-icon icon="bell" /> &nbsp; Notifications</span>
+    <span href="#contact"><font-awesome-icon icon="video" /> &nbsp; Create</span>
+    <span href="#contact"><font-awesome-icon icon="user" /> &nbsp; Profile</span>
+    <span href="#contact" @click="clearLocalStorage"><font-awesome-icon icon="logout" /> &nbsp; Logout</span>
 </div>
 
 <div class="main">
@@ -37,6 +38,10 @@ export default {
     this.getPosts();
   },
   methods: {
+    clearLocalStorage() {
+      localStorage.clear();
+      this.$router.push("/login");
+    },
     getPosts() {
       axios
         .get("http://localhost:8081/posts/allPosts", {

@@ -28,7 +28,7 @@ let text = txt.join(''); //"ABCDEFG"
 let text1 = txt.join(' and '); // A and B and C and D and E and F and G
 
 //Object 
-Object.keys(fruits)  //  [0,1,2,3]
+Object.keys(fruits)  // [0,1,2,3]
 Object.values(fruits) // [ 'Banana', 'Orange', 'Kiwi', 'Kiwi' ]
 Object.entries(fruits) //[['0', 'Banana'],['1', 'Orange'],['2', 'Kiwi'],['3', 'Kiwi']]
 

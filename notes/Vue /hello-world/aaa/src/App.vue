@@ -2,6 +2,7 @@
   <div>
     <!--  <div>{{ name }}{{ mobile }}</div>
   <div v-text="mobile"></div>
+import ThisNext from './components/ThisNext.vue';
   <div v-html="address"></div>
   <div v-bind:id="id"></div>
   <button v-bind:disabled="disabled">button</button>
@@ -36,14 +37,26 @@
     <h2></h2>
     <h2></h2>
     <div></div>
-  </template>
-</div>
+    <CompositionApi />
+    <CompForMixins />
+    <ThisNext />
+
+  </div>
+</template>
 
 <script>
+import CompForMixins from './components/CompForMixins.vue';
+import CompositionApi from './components/CompositionApi.vue';
+import ThisNext from './components/This.$nextTrick.vue'
 // import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   name: "App",
+  components: {
+    CompositionApi,
+    CompForMixins,
+    ThisNext
+  },
   data() {
     return {
       name: "Nilesh",
@@ -83,18 +96,23 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 .underline {
   text-decoration: underline;
 }
+
 .danger {
   color: red;
 }
+
 .display {
   display: none;
 }
+
 .green {
   color: green;
 }
+
 .bold {
   font-weight: bolder;
 }
