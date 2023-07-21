@@ -4,15 +4,15 @@
 
 
 **2. How does Vue.js differ from other frameworks like React and Angular?**
--lightweight compared to Angular,
--easier to learn and use.
--simpler syntax.
+-   lightweight compared to Angular,
+-   easier to learn and use.
+-   simpler syntax.
 
 
 
 **0. What is the Vue instance?**
--is the root of a Vue application. 
--It serves as the entry point for a Vue component. 
+- is the root of a Vue application. 
+- It serves as the entry point for a Vue component. 
 
 
 
@@ -190,7 +190,7 @@ Vue.js render functions allow you to programmatically generate the DOM structure
 
 #################
 
-1. Computed :
+**1. Computed :**
 In Vue.js, computations are created using computed properties. Computed properties are functions defined in a Vue component that are used to calculate and return a value based on the component's data. They are reactive and automatically update whenever their dependent data changes.
 
 <script>
@@ -208,14 +208,14 @@ In Vue.js, computations are created using computed properties. Computed properti
 };
 </script>
 
-2. Directives.
+**2. Directives**
    Directives are dynamic attributes that you can add in to the html to use dynamic data.
    directives starts with v- prefix.
    vue js provides multiple build-in directives and u can create custom directives also.
 
    eg. v-bind, v-for, v-if, v-show
 
-3. Custom directives:
+**3. Custom directives:**
 
 Custom directives allow you to extend the functionality of Vue by defining your own directives that can be used in templates.
 
@@ -328,7 +328,7 @@ export default {
 </script>
 In this example, The ChildComponent emits a custom event called custom-event when the button is clicked. The ParentComponent listens to this event and handles it with the handleEvent method.
 
-Provide/Inject Example:
+**Provide/Inject Example:**
 ParentComponent.vue:
 
 html
@@ -411,7 +411,7 @@ export default {
 };
 </script>
 
-5. how vue is diff than other frameworks:
+**5. how vue is diff than other frameworks:**
 
 Vue.js known simplicity, flexibility,experience.
 1. Easy to Learn:
@@ -420,7 +420,7 @@ Vue.js known simplicity, flexibility,experience.
 4. Two-Way Data Binding: Vue.js has a feature called two-way data binding. This means that when you make changes to the user interface, the underlying data is      automatically updated, and vice versa.
 5. Routing and State Management: Vue.js includes official solutions for routing (Vue Router) and state management (Vuex). These features help developers handle navigation between pages and manage application data more efficiently.
 
-6. key feature of vue js
+**6. key feature of vue js**
     Reactive Data Binding: 
     Component-Based Architecture: 
     Vue CLI:
@@ -433,7 +433,7 @@ Vue.js known simplicity, flexibility,experience.
     Scoped CSS:
 
 
-7. vue life cycle:
+**7. vue life cycle:**
 
   beforeCreate() {
     console.log("beforeCreate hook");
@@ -460,7 +460,7 @@ Vue.js known simplicity, flexibility,experience.
     console.log("unmounted hook");
   },
 
-8. conditional rerendering;
+**8. conditional rerendering;**
     v-if v-else.
     v-show : element remains into DOM. it toggles display property.
 
