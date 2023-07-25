@@ -10,34 +10,63 @@
     <span href="#contact"><font-awesome-icon icon="bell" /> &nbsp; Notifications</span>
     <span href="#contact"><font-awesome-icon icon="video" /> &nbsp; Create</span>
     <span href="#contact"><font-awesome-icon icon="user" /> &nbsp; Profile</span>
-    <span href="#contact" @click="clearLocalStorage"><font-awesome-icon icon="logout" /> &nbsp; Logout</span>
+    <span href="#contact" @click="clearLocalStorage"> Logout</span>
 </div>
 
 <div class="main">
-  <div v-for="item in posts" :key="item" class="feedItems">
-            <Card :item='item'/>
-        </div>
+  <div class="d-flex justify-content-between">
+    <div>
+      <div v-for="item in posts" :key="item" class="feedItems">
+            <Card :item='item' :user="user"/>
+      </div>
+    </div>
+    <div class="add-post">
+      <AddPost @updatePosts=updatePosts />
+    </div>
+  </div>
+
 </div>
+
+
    
 
 </template>
 <script>
+import AddPost from "./AddPost.vue"
 import Card from "./Card";
 import axios from "axios";
 export default {
   name: "dashBoard",
   components: {
     Card,
+    AddPost,
   },
   data() {
     return {
       posts: [],
+      user: ""
     };
   },
+
   created() {
+    this.getUser()
     this.getPosts();
   },
   methods: {
+
+    getUser() {
+      axios.get(`http://localhost:8081/posts/self`, {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("currentUser")),
+        },
+      })
+        .then((res) => {
+          this.user = res.data.user;
+          console.log(this.user)
+        })
+        .catch((e) => console.log(e));
+    },
+
     clearLocalStorage() {
       localStorage.clear();
       this.$router.push("/login");
@@ -52,6 +81,10 @@ export default {
         .then((res) => (this.posts = res.data.message))
         .catch((e) => console.log(e));
     },
+    updatePosts(post) {
+      this.posts.unshift(post)
+      console.log('p', post);
+    }
   },
 };
 </script>
@@ -68,6 +101,8 @@ export default {
   padding-top: 100px;
 }
 
+
+
 .sidenav span {
   padding: 8px 8px 8px 50px;
   margin: 20px 0 10px 0;
@@ -75,6 +110,19 @@ export default {
   font-size: 16px;
   color: #818181;
   display: block;
+}
+
+.add-post {
+  height: 600px;
+  width: 600px;
+  /* background-color: red; */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: aliceblue;
+  overflow-x: hidden;
+  padding-top: 100px;
 }
 
 .sidenav span:hover {

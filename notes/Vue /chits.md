@@ -4,9 +4,19 @@
 
 
 **2. How does Vue.js differ from other frameworks like React and Angular?**
--   lightweight compared to Angular,
--   easier to learn and use.
--   simpler syntax.
+- lightweight compared to Angular,
+- easier to learn and use.
+- simpler syntax.
+- Reactive Data Binding: 
+- Component-Based Architecture: 
+- Vue CLI:
+- Directives:
+- Virtual DOM:
+- Transition and Animation:
+- Routing with Vue Router:
+- State Management with Vuex:
+- Devtools:
+- Scoped CSS:
 
 
 
@@ -20,8 +30,6 @@
 **3. What are watchers in Vue.js?**
 - Allow you to watch for changes on a specific property and perform custom logic when that property changes.
 - used when you need to perform asynchronous operations based on data changes.
-
-
 
 
 **4. What is the purpose of the Vue router?**
@@ -235,7 +243,7 @@ export default {
       },
 </script>
 
-4. Component Communication: 
+4. Component Communication:
 
 examples of component communication in Vue.js 3 using.
         props
@@ -420,21 +428,10 @@ Vue.js known simplicity, flexibility,experience.
 4. Two-Way Data Binding: Vue.js has a feature called two-way data binding. This means that when you make changes to the user interface, the underlying data is      automatically updated, and vice versa.
 5. Routing and State Management: Vue.js includes official solutions for routing (Vue Router) and state management (Vuex). These features help developers handle navigation between pages and manage application data more efficiently.
 
-**6.key feature of vue js**
-
-- Reactive Data Binding: 
-- Component-Based Architecture: 
-- Vue CLI:
-- Directives:
-- Virtual DOM:
-- Transition and Animation:
-- Routing with Vue Router:
-- State Management with Vuex:
-- Devtools:
-- Scoped CSS:
 
 
-**7. vue life cycle:**
+
+**7.vue life cycle:**
 
   beforeCreate() {
     console.log("beforeCreate hook");

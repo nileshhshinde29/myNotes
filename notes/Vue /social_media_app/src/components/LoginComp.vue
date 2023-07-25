@@ -22,12 +22,15 @@
 import axios from "axios";
 export default {
   name: "LoginComponent",
+  inject: ['user',],
   data() {
     return {
       password: "",
       email: "",
+      // user: 'k;lk;lk;'
     };
   },
+
   methods: {
     login(event) {
       axios

@@ -29,7 +29,7 @@ router.post('/addPost', postController, async (req, res) => {
     const user = await User.findById(req.user.id)
     if (user) {
         const { _id, password, email, createdAt, updatedAt, __v, ...other } = user._doc
-        console.log(other);
+        console.log(req);
         if (req.file) {
             const newPost = await new Post({
                 userID: req.user.id,
@@ -117,7 +117,17 @@ router.put('/comment/:id', async (req, res) => {
         res.status(500).json(error)
     }
 })
+router.get('/self', async (req, res) => {
+    try {
+        const user = req.user.id
+        res.status(200).json({
+            user: user
+        })
 
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
 router.get('/allPosts', async (req, res) => {
     var pageNo = parseInt(req.query.pageNo) || 1
     var size = parseInt(req.query.size)
