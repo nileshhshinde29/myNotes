@@ -5,6 +5,30 @@ CallStack:
     It can do only one thing at time.
     the callstack present inside the javascript engin.and all code of js executed inside the callstack.
 
+    .......................................................................................................................
+    .                                                                                                                     .
+    .                                                                                                                     .     
+    .  \\\\\\\\\|/////////<== Js Engine                         web apis                                                  .
+    .  \                 /                                       settimeout                                               .
+    .  \                 /                                       Local Storage                                            .  
+    .  \ |             | /                                       console.log                                              .
+    .  \ |             | /                                       Dom                                                      .
+    .  \ |             | /                                       fetch                                                    .
+    .  \ |  callstack  | /                                       location                                                 .
+    .  \ |             | /                                                                                                .
+    .  \ |             | /                                                                                                . 
+    .  \ |             | /                ..........................................................                      .
+    .  \ |             | /                |      micro task que   (more Priority)                  |                      .     
+    .  \ |             | /    (Event)     ..........................................................                      .     
+    .  \ |             | /    (loop )                                                                                     .
+    .  \ |             | /                ..........................................................                      .
+    .  \ |_____________| /                |     Call back Que                                      |                      .
+    .  \                 /                ..........................................................                      .
+    .  \\\\\\\\\|/////////                                                                                                .
+    .......................................................................................................................    
+
+    
+
     Whenever any javascript code is run it create global execution context.And this execution context put all code into the call stack.
     In global execution context code runs line by line. When running of code is completed then this code id pops out from the callstack and global execution 
     also pops out from the call stack.
@@ -16,27 +40,7 @@ CallStack:
   -Microtask Queue:
     All kind of promises and mutation observer code comes into this microtask code.
     It has more priority than callback queue.
-.......................................................................................................................
-.                                                                                                                     .
-.                                                                                                                     .     
-.  \\\\\\\\\|/////////<== Js Engine                         web apis                                                  .
-.  \                 /                                       settimeout                                               .
-.  \                 /                                       Local Storage                                            .  
-.  \ |             | /                                       console.log                                              .
-.  \ |             | /                                       Dom                                                      .
-.  \ |             | /                                       fetch                                                    .
-.  \ |  callstack  | /                                       location                                                 .
-.  \ |             | /                                                                                                .
-.  \ |             | /                                                                                                . 
-.  \ |             | /                ..........................................................                      .
-.  \ |             | /                |      micro task que   (more Priority)                  |                      .     
-.  \ |.............| /    (Event)     ..........................................................                      .     
-.  \                 /    (loop )                                                                                     .
-.  \                 /                ..........................................................                      .
-.  \                 /                |     Call back Que                                      |                      .
-.  \                 /                ..........................................................                      .
-.  \\\\\\\\\|/////////                                                                                                .
-.......................................................................................................................
+
 
   -Callback queue:
     in side the callback stack all callback functions are waiting for completion of execution of code of callstack.

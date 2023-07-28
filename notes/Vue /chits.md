@@ -433,33 +433,119 @@ Vue.js known simplicity, flexibility,experience.
 
 **7.vue life cycle:**
 
+ creation Phase: 
   beforeCreate() {
-    console.log("beforeCreate hook");
+
+     triggered before the Vue instance is created.
   },
   created() {
-    console.log("created hook");
+
+     triggered after the Vue instance is created.
+     props available in this phase.
+
   },
+
+ Mounting Phase: 
   beforeMount() {
-    console.log("beforeMount hook");
+
+     triggered before the Vue instance's template is rendered and mounted to the DOM.
+
   },
   mounted() {
-    console.log("mounted hook");
+
+    triggered after the Vue instance's template is rendered and mounted to the DOM.
+
   },
+ Updating Phase:
+
   beforeUpdate() {
-    console.log("beforeUpdate hook");
+
+    triggered when data changes but before the virtual DOM re-renders and applies the changes to the actual DOM.
+
   },
   updated() {
-    console.log("updated hook");
+
+     This hook is triggered after the virtual DOM has re-rendered and applied the changes to the actual DOM.
+
   },
+ Unmounting Phase: 
   beforeUnmount() {   
-    console.log("beforeUnmount hook");
+
+    triggered before the Vue instance is destroyed 
   },
   unmounted() { 
-    console.log("unmounted hook");
+
+     after the Vue instance has been destroyed,
   },
 
 **8. conditional rerendering;**
     v-if v-else.
     v-show : element remains into DOM. it toggles display property.
+
+
+
+
+
+
+
+    As of my last update in September 2021, Vue.js does not have built-in support for pipes like Angular does. However, Vue.js offers a similar concept called "filters" that allows you to format and manipulate data in templates. Filters are useful for applying transformations to the output of expressions in the template.
+
+To use filters in Vue.js, you can define them locally within a Vue component or globally across your entire application. Here's how you can define a filter and use it in Vue.js:
+
+1. **Defining a Local Filter:**
+   You can define a filter in the `filters` option of your Vue component:
+
+```vue
+<template>
+  <div>
+    {{ message | capitalize }}
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: 'hello world'
+    };
+  },
+  filters: {
+    capitalize(value) {
+      if (!value) return '';
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+  }
+};
+</script>
+```
+
+In this example, we've defined a `capitalize` filter that capitalizes the first letter of the input string.
+
+2. **Using Global Filters:**
+   If you want to use a filter across multiple components in your application, you can define a global filter using the `Vue.filter` method:
+
+```javascript
+// main.js or any other entry point of your Vue application
+import Vue from 'vue';
+
+Vue.filter('capitalize', function(value) {
+  if (!value) return '';
+  return value.charAt(0).toUpperCase() + value.slice(1);
+});
+```
+
+After registering the global filter, you can use it in any component template without explicitly defining it in the `filters` option:
+
+```vue
+<template>
+  <div>
+    {{ message | capitalize }}
+  </div>
+</template>
+```
+
+Please note that Vue 3 (and newer) introduced the Composition API, and filters were not included in Vue 3 to promote using the Composition API for such transformations. Instead, you can achieve similar functionality using regular functions, methods, or computed properties within your components.
+
+Keep in mind that Vue.js evolves over time, and new features or changes might have been introduced after my last update. It's always a good idea to check the official Vue.js documentation or release notes for the latest information.
 
 

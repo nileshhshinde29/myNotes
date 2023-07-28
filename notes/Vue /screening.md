@@ -19,8 +19,9 @@ Good morning,
 
 # 1 Data Analysis of e-commerce websites:
    
-  This application perform data analysis on various e-commerce websites and gain valuable insights and inform business decisions.
-  Project involves collecting ,processing, and analyzing data from different e-commerce  to know about patterns, trends, and opportunities for optimization.
+  This application perform data analysis on various e-commerce websites and gain valuable insights.
+  Project involves collecting ,processing, and analyzing data from different e-commerce.
+  We can get idea about patterns, trends, and opportunities for optimization.
 
    Filters:
     1 Filter
