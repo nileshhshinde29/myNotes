@@ -55,3 +55,10 @@ const fruitsss = ["Banana", "Orange", "Apple", "Mango"];
 
 fruitsss.splice(2, 1, 'kiwi', 'greps')
 console.log(fruitsss);
+
+let a1 = "hello, how are you"
+
+console.log(a1.substring(0, 5)) // get substring
+console.log(a1.substring(1, a1.length)) // remove first letter
+console.log(a1.substring(0, a1.length - 1)) // remove last letter
+console.log(a1.split('o')[0]) // remove string after "o"

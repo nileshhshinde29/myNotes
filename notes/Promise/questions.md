@@ -231,7 +231,6 @@ console.log(max)
     a= a.replaceAll(',', '').split(' ').join('')
 
     if(a.split('').reverse().join('').toLowerCase() == a.toLowerCase()){
-        
        console.log("pa")
     }
     else{
@@ -333,7 +332,6 @@ for (let i = 0; i < input.length; i++) {
     result.push(input[i])
 
     for (let j = i + 1; j < input.length; j++) {
-
         a = a + input[j];
         result.push(a)
     }

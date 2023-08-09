@@ -31,6 +31,39 @@
 - Allow you to watch for changes on a specific property and perform custom logic when that property changes.
 - used when you need to perform asynchronous operations based on data changes.
 
+- Immediate: true ( Eager Watchers ) => watch is lazy by default, it is immediately executed when the watcher is created, even before any data changes.
+
+    watch: {
+        question: {
+          handler(newQuestion) {
+            // this will be run immediately on component creation.
+          },
+          // force eager callback execution
+          immediate: true
+        }
+      }
+
+        watch(source, (newValue, oldValue) => {
+          
+        }, { immediate: true })
+
+- deep:true => It is used to perform deep object property watching. Which means it will react to changes in nested properties of objects.
+
+          watch: {
+        someDeepProperty: {
+          handler(newValue, oldValue) {
+            // This function will run when any nested property changes within someDeepProperty
+          },
+          deep: true
+        }
+      }
+
+          watch(source, (newValue, oldValue) => {
+
+          }, { deep : true })
+
+- flush: 'post'=>If you want to access the DOM in a watcher callback after Vue has updated it, you need to specify the flush: 'post'
+
 
 **4. What is the purpose of the Vue router?**
 - The Vue router is a routing library for Vue.js 
@@ -547,5 +580,9 @@ After registering the global filter, you can use it in any component template wi
 Please note that Vue 3 (and newer) introduced the Composition API, and filters were not included in Vue 3 to promote using the Composition API for such transformations. Instead, you can achieve similar functionality using regular functions, methods, or computed properties within your components.
 
 Keep in mind that Vue.js evolves over time, and new features or changes might have been introduced after my last update. It's always a good idea to check the official Vue.js documentation or release notes for the latest information.
+
+# watcheffect
+
+https://vuejs.org/guide/essentials/watchers.html#watcheffect
 
 
