@@ -1,5 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import store from './store';
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+
+
 // import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -12,6 +17,8 @@ import { faUser, faEnvelope, faHeart as fasHeart, faUserSecret, faPaperPlane, fa
 import { faBookmark as farBookmark, faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 
 const app = createApp(App)
+app.component('QuillEditor', QuillEditor)
+app.use(store)
 
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'

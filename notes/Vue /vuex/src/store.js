@@ -43,7 +43,6 @@ export default createStore({
             return state.secretKey + '##'
         },
         hashAddNew(state, getters) {
-
             return state.url + ' /' + getters.hashAdd;
         }
     },

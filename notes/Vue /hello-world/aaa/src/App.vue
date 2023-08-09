@@ -40,6 +40,7 @@ import ThisNext from './components/ThisNext.vue';
     <CompositionApi />
     <CompForMixins />
     <ThisNext />
+    <Filter />
 
   </div>
 </template>
@@ -48,6 +49,7 @@ import ThisNext from './components/ThisNext.vue';
 import CompForMixins from './components/CompForMixins.vue';
 import CompositionApi from './components/CompositionApi.vue';
 import ThisNext from './components/This.$nextTrick.vue'
+import Filter from './components/filter.vue';
 // import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
@@ -55,7 +57,8 @@ export default {
   components: {
     CompositionApi,
     CompForMixins,
-    ThisNext
+    ThisNext,
+    Filter,
   },
   data() {
     return {

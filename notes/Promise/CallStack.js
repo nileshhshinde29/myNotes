@@ -1,15 +1,15 @@
 /* 
 
 CallStack:
-    javascript is a synchronous language. It has one call stack.
+    Javascript is a synchronous language. It has one call stack.
     It can do only one thing at time.
     the callstack present inside the javascript engin.and all code of js executed inside the callstack.
 
     .......................................................................................................................
-    .                                                                                                                     .
+    .                                                                                          Browser                    .
     .                                                                                                                     .     
-    .  \\\\\\\\\|/////////<== Js Engine                         web apis                                                  .
-    .  \                 /                                       settimeout                                               .
+    .  \\\\\\\\\|///////// <== Js Engine                         web apis                                                 .
+    .  \                 /                                       setTimeout                                               .
     .  \                 /                                       Local Storage                                            .  
     .  \ |             | /                                       console.log                                              .
     .  \ |             | /                                       Dom                                                      .
@@ -49,6 +49,8 @@ CallStack:
      Event loop continuously checks all this stacks to is empty.
      If its not empty then it take code from code from microtask first because it is on priority.
      then takes code from callback queue. and push it into the callstack to execute.
+
+  - Starvation of call back que:   
 
      
   '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''

@@ -57,17 +57,17 @@ function Concept2() {
     let x = 10;
     var y = 10;
     function f1() {  // working normal with functions
-        var a = 20;
-        let b = 20
+        var x = 20;
+        let y = 20;
     }
-    console.log(a); //10
+    console.log(x); // 10
     console.log(y); // 10
 }
 
 
 // hosting
 // ArrowFunction()  // Cannot access 'ArrowFunction' before initialization
-normalFunction()  // hii
+normalFunction()    // hii
 
 
 const ArrowFunction = () => {

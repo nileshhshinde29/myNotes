@@ -22,9 +22,11 @@
     </div>
     <div class="add-post">
       <AddPost @updatePosts=updatePosts />
+      <CompositeApiComponent v-if="false"/>
+      <CompositeApiComponent2 v-if="false"/>
+      <TransiTions/>
     </div>
   </div>
-
 </div>
 
 
@@ -35,11 +37,18 @@
 import AddPost from "./AddPost.vue"
 import Card from "./Card";
 import axios from "axios";
+import CompositeApiComponent from './CompositeApiComponent.vue'
+import CompositeApiComponent2 from './CompositeApiComponent2.vue'
+import TransiTions from './TransiTions.vue'
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   name: "dashBoard",
   components: {
     Card,
     AddPost,
+    CompositeApiComponent,
+    CompositeApiComponent2,
+    TransiTions,
   },
   data() {
     return {
@@ -47,12 +56,25 @@ export default {
       user: ""
     };
   },
-
+  computed: {
+    ...mapState({
+      name: (state) => state.name
+    })
+  },
   created() {
     this.getUser()
     this.getPosts();
+    this.setNameAfterTimeout('shinde')
+    console.log("name", this.name);
   },
   methods: {
+    ...mapMutations({
+      setName: 'setName',
+
+    }),
+    ...mapActions({
+      setNameAfterTimeout: 'setNameAfterTimeout'
+    }),
 
     getUser() {
       axios.get(`http://localhost:8081/posts/self`, {

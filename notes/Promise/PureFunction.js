@@ -2,7 +2,7 @@
 
   Pure function:
       Pure functions always return same output.
-     -It does not depend on any external state .
+     -It does not depend on any external state.
      -It does not modify any external state or have any side effects.
 
 */

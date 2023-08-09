@@ -1,4 +1,4 @@
-// /* 
+// /*
 // closures: 
 //      closure is the combination of a function bundled together.a closure gives you access to an outer function's scope from an inner function.
 //      In JavaScript, closures are created every time a function is created, at function creation time.
@@ -11,14 +11,10 @@
 //         increment: (val) => {
 //             count += 1;
 //         },
-
 //         getValue: () => {
-
 //             return count;
 //         }
-
 //     }
-
 // }
 
 // const counter = privateCounter.   // here closure is created.
@@ -38,8 +34,5 @@
 // const secret = getSecret();
 // console.log(secret)
 
-function app() {
-    console.log(this)
-}
-app()
+
 
