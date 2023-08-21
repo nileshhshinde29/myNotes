@@ -39,11 +39,4 @@ session storage and local storage :
         The data stored using localStorage is available into any window of same browser.
         
 
-
-
-
-
-
-
-
 */

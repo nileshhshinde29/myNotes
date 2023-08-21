@@ -85,7 +85,6 @@ console.log('3'+  +3)
 console.log(3+ +'3'+ '3')
 console.log("3"- -3)
 console.log(3- -'3')
-console.log("3"- -3 )
 */
 /* 
 console.log(3 * 3)
@@ -115,6 +114,10 @@ let c==2
 
 console.log(--c === a);
 console.log(a === b === --c);
+console.log(true == 1);
+console.log(true === 1);
+
+
 */
 
 /* 
@@ -190,9 +193,9 @@ console.log(b)
 
 /* 
 let a= 0
-console.log(a++) //0
-console.log(++a) //2
-console.log(a)   //2
+console.log(a++) //0                                                            
+console.log(++a) //2                                                            
+console.log(a)   //2                                                            
 
 */
 

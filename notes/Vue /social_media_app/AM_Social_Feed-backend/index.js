@@ -11,6 +11,8 @@ const loginRouter = require('./controller/login')
 const auth = require('./controller/auth')
 const usersRouter = require('./routes/users')
 const postsRouter = require('./routes/posts')
+const coursesRoutes = require('./routes/courses')
+const coursesQuestionRoutes = require('./routes/courseQuestions')
 
 dotenv.config()
 const url = process.env.DB_URL
@@ -43,6 +45,8 @@ app.all('/*', (req, res, next) => {
 app.use('/users', usersRouter)
 app.use('/posts', auth, postsRouter)
 app.use(express.static(path.join(__dirname, "uploads")));
+app.use('/courses', auth, coursesRoutes)
+app.use('/question', coursesQuestionRoutes)
 app.use('/*', (req, res) => {
     res.json({
         message: 'Url does not exist'

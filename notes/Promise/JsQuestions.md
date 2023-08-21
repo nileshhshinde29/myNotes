@@ -1,18 +1,19 @@
 # Javascript:
+
 - Callstack
 - JSON.Stringify and JSON.parse
 - Pure Functions
 - this keyword
-- What is Closure? 
-- What is Hoisting? 
-- What are the datatype? 
-- Difference between == & ===? 
+- What is Closure?
+- What is Hoisting?
+- What are the datatype?
+- Difference between == & === ? 
 - What is the difference between map and filter? 
 - promise 
 - try catch 
 - difference between let const var
 - Rest and spread 
-- what is JavaScript library 
+- what is JavaScript library`
 - curring 
 - prototypes 
 - difference between normal function and arrow function 
@@ -28,17 +29,14 @@
 - temporal dead zone 
 - Strict mode in react js
 
-
-
-
 # CSS:
 
-- What are the selectors? 
+- What are the selectors?
 - How many types can we write css? 
 - CSS structure?  
 - Box Model
 - Pre Processor (SASS)? 
-- visibility:hidden and visibility:none
+- visibility:hidden and display:none
 - pseudo selector in css? 
 - SASS Mixins? 
 - ways to use css in component 
@@ -56,5 +54,7 @@
 
 # HTML:
 - Whats are blocked elements and inline elements?
-- What are blocked elements and Inline Elements? 
 - What is semantic HTML? 
+
+
+4355 8402 0455 5868

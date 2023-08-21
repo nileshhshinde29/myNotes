@@ -3,6 +3,8 @@ import App from './App.vue'
 import store from './store';
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript bundle
+
 
 
 // import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
