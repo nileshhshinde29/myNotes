@@ -417,7 +417,7 @@ console.log(typeof x); I
 /* 
 
 (() => {
-    let x=y = (y = 10); //if not given data type, y is acting as a var
+    let x=y = (y = 10); //if not given data type, y is acting as a var // check
 })();
 console.log(typeof y); 
 

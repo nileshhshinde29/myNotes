@@ -13,7 +13,7 @@
 - try catch 
 - difference between let const var
 - Rest and spread 
-- what is JavaScript library`
+- what is JavaScript library
 - curring 
 - prototypes 
 - difference between normal function and arrow function 
@@ -58,3 +58,11 @@
 
 
 4355 8402 0455 5868
+
+Which stack u are using in your project?
+Do you use any specific design frameworks or libraries for UI/UX?
+which project management tool u are using?
+Are u using any css preprocessor like scss?
+
+44018 => 156
+44078 => 148

@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
 
     state: {
+        isLogin: localStorage.getItem('currentUser') !== null,
         name: 'nilesh',
         surname: 'shinde'
     },
@@ -13,6 +14,10 @@ export default createStore({
         },
         setSurName(state, payload) {
             state.surname = payload
+        },
+        setLogin(state, payload) {
+            console.log(state, payload);
+            state.isLogin = payload
         },
     },
     actions: {

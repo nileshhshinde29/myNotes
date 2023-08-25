@@ -1,18 +1,8 @@
 <template>
   <div>
-    <div class="sidenav">
-      <router-link class="sidenav-c" to="/dashboard/"> <font-awesome-icon icon="house" /> &nbsp;Notes</router-link>
-      <router-link class="sidenav-c" to="/social-media"><font-awesome-icon icon="magnifying-glass" /> &nbsp;Social
-        Media</router-link>
-      <router-link class="sidenav-c" to="#clients"><font-awesome-icon icon="paper-plane" />&nbsp;Explore</router-link>
-      <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="film" /> &nbsp; Reels</router-link>
-      <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="message" /> &nbsp; Messages</router-link>
-      <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="bell" /> &nbsp;Notifications</router-link>
-      <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="video" /> &nbsp; Create</router-link>
-      <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="user" /> &nbsp; Profile</router-link>
-      <router-link class="sidenav-c" to="#contact" @click="clearLocalStorage"> Logout</router-link>
+    <div class="sidenav" v-if="isLogin">
+      <side-bar @clearLocalStorage="clearLocalStorage" />
     </div>
-
     <div class="main">
       <router-view />
     </div>
@@ -20,15 +10,53 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex';
+import SideBar from './components/SideBar.vue';
 
 export default {
+  components: { SideBar },
   name: "App",
+  data() {
+    return {
+      localStorageItemPresent: true,
+    };
+  },
   methods: {
+    ...mapMutations({
+      setLogin: 'setLogin'
+    }),
     clearLocalStorage() {
+
+      this.setLogin(false)
+      console.log(this.isLogin, 'login');
       localStorage.clear();
+      this.localStorageItemPresent = false
       this.$router.push("/login");
     },
-  }
+    auth() {
+      console.log('auth');
+      return localStorage.getItem('currentUser') !== null
+    }
+  },
+  computed: {
+    ...mapState({
+      isLogin: (state) => state.isLogin,
+    })
+  },
+  watch: {
+
+    '$data.localStorageItemPresent': {
+      handler(newVal) {
+        if (!newVal) {
+          // Remove the LocalStorageComponent when item is removed from localStorage
+          // this.$refs.localStorageComponent.$destroy();
+        }
+      },
+      immediate: true, // Trigger the watcher immediately on component mount
+    },
+  },
+
+
 };
 </script>
 
@@ -84,9 +112,7 @@ export default {
 
 .main {
   margin-left: 250px;
-  /* Same as the width of the sidenav */
   font-size: 28px;
-  /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
 

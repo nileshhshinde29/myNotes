@@ -20,18 +20,21 @@
 </template>
 <script>
 import axios from "axios";
+import { mapMutations } from 'vuex';
+
 export default {
   name: "LoginComponent",
-  inject: ['user',],
   data() {
     return {
       password: "",
       email: "",
-      // user: 'k;lk;lk;'
     };
   },
 
   methods: {
+    ...mapMutations({
+      setLogin: 'setLogin'
+    }),
     login(event) {
       axios
         .post("http://localhost:8081/login", {
@@ -40,7 +43,8 @@ export default {
         })
         .then((res) => {
           localStorage.setItem("currentUser", JSON.stringify(res.data.token));
-          this.$router.push("/dashboard");
+          this.setLogin(true)
+          this.$router.push("/social-media");
         })
         .catch((e) => console.log(e));
       event.preventDefault();
