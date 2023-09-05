@@ -232,7 +232,7 @@ Vue.js render functions allow you to programmatically generate the DOM structure
 #################
 
 **1. Computed :**
-In Vue.js, computations are created using computed properties. Computed properties are functions defined in a Vue component that are used to calculate and return a value based on the component's data. They are reactive and automatically update whenever their dependent data changes.
+Computed properties are functions defined in a Vue component that are used to calculate and return a value based on the component's data. They are reactive and automatically update whenever their dependent data changes.
 
 <script>
    export default {
@@ -550,14 +550,14 @@ export default {
   }
 };
 </script>
-```
+
 
 In this example, we've defined a `capitalize` filter that capitalizes the first letter of the input string.
 
 2. **Using Global Filters:**
    If you want to use a filter across multiple components in your application, you can define a global filter using the `Vue.filter` method:
 
-```javascript
+javascript
 // main.js or any other entry point of your Vue application
 import Vue from 'vue';
 

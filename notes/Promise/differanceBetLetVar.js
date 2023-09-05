@@ -75,5 +75,6 @@ const ArrowFunction = () => {
 }
 
 function normalFunction() {
+
     console.log('hii');
 }

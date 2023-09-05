@@ -21,7 +21,6 @@ function add(a, b) {
 // not pure function
 
 let total = 0;
-
 function impureAdd(num) {
     total += num; // Modifies external state (total variable)
     return total;

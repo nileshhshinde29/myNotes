@@ -22,7 +22,7 @@ const parsedData = JSON.parse(jsonString1);
 console.log(parsedData); // Output: { name: "John", age: 30, isEmployed: true }
 
 
-/* -------------------------------------------------------------------------------------------------------------- */
+/*-------------------------------------------------------------------------------------------------------------- */
 /* 
 session storage and local storage :
         both are part of web storage apis  which is provided by modern web browser as part of HTML 5 specification.

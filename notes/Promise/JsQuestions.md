@@ -6,6 +6,7 @@
 - this keyword
 - What is Closure?
 - What is Hoisting?
+- What is interceptors?
 - What are the datatype?
 - Difference between == & === ? 
 - What is the difference between map and filter? 
@@ -28,6 +29,8 @@
 - call() and apply() and bind()
 - temporal dead zone 
 - Strict mode in react js
+- is javascript is single threaded or Multithreaded.
+
 
 # CSS:
 
@@ -45,7 +48,7 @@
 - Saas (mixin ,include) 
 - inheritance 
 - selectors in css 
-- Meta tag in HTML ? 
+- Meta tag in HTML? 
 
 
 
@@ -64,5 +67,7 @@ Do you use any specific design frameworks or libraries for UI/UX?
 which project management tool u are using?
 Are u using any css preprocessor like scss?
 
-44018 => 156
-44078 => 148
+
+
+
+

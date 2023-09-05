@@ -1,6 +1,7 @@
 // /*
 // closures: 
-//      closure is the combination of a function bundled together.a closure gives you access to an outer function's scope from an inner function.
+//      closure is the combination of a function bundled together.
+//      A closure gives you access to an outer function's scope from an inner function.
 //      In JavaScript, closures are created every time a function is created, at function creation time.
 // */
 
@@ -17,7 +18,7 @@
 //     }
 // }
 
-// const counter = privateCounter.   // here closure is created.
+// const counter = privateCounter()   // here closure is created.
 
 // console.log(counter.getValue())   // 1
 // counter.increment();

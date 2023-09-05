@@ -4,7 +4,8 @@
         <router-link class="sidenav-c" to="/dashboard/"> <font-awesome-icon icon="house" /> &nbsp;Notes</router-link>
         <router-link class="sidenav-c" to="/social-media"><font-awesome-icon icon="magnifying-glass" /> &nbsp;Social
             Media</router-link>
-        <router-link class="sidenav-c" to="#clients"><font-awesome-icon icon="paper-plane" />&nbsp;Explore</router-link>
+        <router-link class="sidenav-c" to="/shopping-dashboard"><font-awesome-icon
+                icon="paper-plane" />&nbsp;Shopping</router-link>
         <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="film" /> &nbsp; Reels</router-link>
         <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="message" /> &nbsp; Messages</router-link>
         <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="bell" /> &nbsp;Notifications</router-link>

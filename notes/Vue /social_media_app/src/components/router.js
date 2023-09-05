@@ -3,6 +3,8 @@ import LoginComp from './LoginComp.vue'
 import Dashboard from './Dashboard.vue'
 import DisplayPoints from './PointsDisplay.vue'
 import SocialMediaMain from '../SocialMediaComponents/SocialMediaMain.vue'
+import ShoppingMain from '../ShoppingCart/ShoppingMain.vue'
+import form from '../ResumeBuilder/form.vue'
 
 
 
@@ -36,7 +38,18 @@ const router = createRouter({
             component: SocialMediaMain,
             meta: { requiresAuth: true }
         },
-
+        {
+            path: '/shopping-dashboard',
+            name: 'shoppingDashboard',
+            component: ShoppingMain,
+            meta: { requiresAuth: true }
+        },
+        {
+            path: '/resumeBuilder',
+            name: 'resumeBuilder',
+            component: form,
+            meta: { requiresAuth: true }
+        },
 
     ]
 })
