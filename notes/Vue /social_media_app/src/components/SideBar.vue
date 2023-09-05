@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <div class="sidenav"> -->
+
         <router-link class="sidenav-c" to="/dashboard/"> <font-awesome-icon icon="house" /> &nbsp;Notes</router-link>
         <router-link class="sidenav-c" to="/social-media"><font-awesome-icon icon="magnifying-glass" /> &nbsp;Social
             Media</router-link>
@@ -11,11 +11,7 @@
         <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="video" /> &nbsp; Create</router-link>
         <router-link class="sidenav-c" to="#contact"><font-awesome-icon icon="user" /> &nbsp; Profile</router-link>
         <router-link class="sidenav-c" to="#contact" @click="$emit('clearLocalStorage')"> Logout</router-link>
-        <!-- </div> -->
 
-        <!-- <div class="main">
-            <router-view />
-        </div> -->
     </div>
 </template>
 
@@ -24,13 +20,6 @@
 export default {
     name: "SideBar",
     emits: ['clearLocalStorage'],
-    // methods: {
-    //     clearLocalStorage() {
-    //         localStorage.clear();
-    //         this.$router.push("/login");
-    //     },
-    // },
-
 };
 </script>
 
