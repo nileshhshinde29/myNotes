@@ -4,9 +4,9 @@
 - JSON.Stringify and JSON.parse
 - Pure Functions
 - this keyword
-- What is Closure?
-- What is Hoisting?
-- What is interceptors?
+- What is Closure? 
+- What is Hoisting? 
+- What is interceptors? : You can intercept requests or responses before they are handled by then or catch => 403 Forbidden
 - What are the datatype?
 - Difference between == & === ? 
 - What is the difference between map and filter? 
