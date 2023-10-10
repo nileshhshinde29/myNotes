@@ -109,7 +109,7 @@ console.log(a===b);
 /* 
 let a= 1;
 let b= 1;
-let c==2
+let c=2
 
 
 console.log(--c === a);
@@ -132,11 +132,11 @@ let for= 100;
 */
 /* 
 for(var i=0; i<3; i++){
-   setTimeout(()=> console.log(1), 1000)
+   setTimeout(()=> console.log(i), 1000)
 }
 
 for(let i=0; i<3; i++){
-   setTimeout(()=> console.log(1), 1000)
+   setTimeout(()=> console.log(i), 1000)
 }
 */
 
@@ -448,8 +448,7 @@ console.log(x);
 /* 
 console.log(!true - true) // -1
 console.log(true + +"10"); // 11
-
-    */
+*/
 
 /* 
 let a= "hello, how are you"

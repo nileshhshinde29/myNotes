@@ -51,22 +51,32 @@
 - Meta tag in HTML? 
 
 
-
-
-
-
 # HTML:
 - Whats are blocked elements and inline elements?
 - What is semantic HTML? 
 
-
+RJH7328651
 4355 8402 0455 5868
-
 Which stack u are using in your project?
 Do you use any specific design frameworks or libraries for UI/UX?
 which project management tool u are using?
-Are u using any css preprocessor like scss?
+Are u using any css preprocessor like scss? 
 
+
+
+
+date 8 Sept
+ explain your previous experience about your project and work.
+ how to migrate from vue2  to vue 3.
+ What what methodology you will follow for updating vue2 two vue3.
+ If we use composition API while updating vue2 to Vue3 then what is your preference to improve code.
+ will Vue3 components works on vue Vue2.
+ Are you worked on type script?
+ What is purpose to use ts over js?
+ Do you have any idea about Option APIs.
+ What is computed?
+ We are using v-model in vue and also computed properties in vue js,Both are doing same work but why we use computed.
+ Have you worked on unit testing. Explain the procedure to check any condition, Write query.
 
 
 

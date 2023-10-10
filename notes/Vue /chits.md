@@ -89,7 +89,7 @@
 
 
 **7. How does Vue.js support form input validation?**
-- Vue.js provides a built-in form input validation mechanism through the v-model directive, along with the use of HTML5 validation attributes like required, min, max, etc. Additionally, you can define custom validation logic using computed properties or methods.
+- Vue.js provides a built-in form input validation mechanism through the v-model directive, along with the use of HTML5 validation attributes like required, min, max, etc. Additionally, you can define custom validation logic using computed properties or methods.  
 
 
 

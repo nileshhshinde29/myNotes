@@ -1,16 +1,33 @@
+.sticky-header {
+    position: fixed;
+    width: 100%;
+    min-height: 70px;
+     box-shadow: 0 8px 3px -8px black;
+    top: 0;
+    /* background-color: #333; */
+     background:linear-gradient(to right, #000000, rgb(116, 3, 3),#000000);
+    /* Customize the background color as needed */
+    color: #fff;
+    /* Customize the text color as needed */
+    padding: 10px 0;
+    /* Adjust the padding as needed */
+    text-align: center;
+    /* Center align the content within the header */
+    z-index: 100;
+    /* Ensure the header is above the sidebar */
+}
+
 .sidenav {
     height: 100%;
-    width: 250px;
+    /* width: 250px; */
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-    padding-top: 100px;
+    /* padding-top: 100px; */
 }
-
-
 
 .sidenav-c {
     padding: 8px 8px 8px 50px;
@@ -21,12 +38,18 @@
     display: block;
 }
 
-.sidenav span:hover {
+/* .sidenav span:hover {
     color: #f1f1f1;
-}
+} */
 
 .main {
     margin-left: 250px;
     font-size: 28px;
     padding: 0px 10px;
 }
+
+.sidebar-toggle-button {
+    display: none;
+    /* Initially hide the sidebar toggle button */
+}
+
