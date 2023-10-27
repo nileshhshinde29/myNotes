@@ -15,18 +15,10 @@
     </div>
     <div>
       <h5>Gender</h5>
-      <input
-        type="radio"
-        v-model="hobbes"
-        id="1"
-        value="Playing cricket"
-      /><label for="1">Playing cricket</label>
-      <input
-        type="radio"
-        v-model="hobbes"
-        id="2"
-        value="Watching movie"
-      /><label for="2">Watching Movies</label>
+      <input type="radio" v-model="hobbes" id="1" value="Playing cricket" />
+      <label for="1">Playing cricket</label>
+      <input type="radio" v-model="hobbes" id="2" value="Watching movie" />
+      <label for="2">Watching Movies</label>
       <input type="radio" v-model="hobbes" id="3" value="Reading books" />
       <label for="3">Reading Books</label>
     </div>

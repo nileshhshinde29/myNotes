@@ -572,7 +572,7 @@ After registering the global filter, you can use it in any component template wi
 ```vue
 <template>
   <div>
-    {{ message | capitalize }}
+    {{ message | capitalize }} 
   </div>
 </template>
 ```
@@ -585,4 +585,5 @@ Keep in mind that Vue.js evolves over time, and new features or changes might ha
 
 https://vuejs.org/guide/essentials/watchers.html#watcheffect
 
+4003373023
 
