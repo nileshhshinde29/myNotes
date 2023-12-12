@@ -172,4 +172,5 @@ console.log(!typeof names === false);
 
 console.log(isNan('Nilesh'));
 console.log(isNan(1));
-
+/* hii */
+let aa = 0;
