@@ -411,7 +411,7 @@ console.log (myCar.make);
 (()) => {
     let x = (y = 10);
 })();
-console.log(typeof x); I
+console.log(typeof x); 
 */
 
 /* 
@@ -446,6 +446,7 @@ console.log(x);
 */
 
 /* 
+
 console.log(!true - true) // -1
 console.log(true + +"10"); // 11
 */
@@ -457,4 +458,170 @@ console.log(a.substring(0,5)) // get substring
 console.log(a.substring(1,a.length)) // remove first letter
 console.log(a.substring(0,a.length-1)) // remove last letter
 console.log(a.split('o')[0]) // remove string after "o"
+*/
+
+/* 
+console.log([] == ![])
+console.log(!!"false" == !!"true");
+console.log(NaN==NaN);
+console.log([] == '' )
+console.log(null == undefined);
+
+let a = [, , ,];
+console.log(a.length)
+console.log(a.join())
+
+let a = [undefined, undefined, undefined, undefined];
+console.log(a.length);
+
+console.log(0.1 + 0.2 == 0.3);
+console.log(0.1 + 0.3 == 0.4);
+
+
+*/
+
+/* 
+function getNumber() {
+  return{
+    value: 23
+  };
+}
+console.log(getNumber())
+
+--VS--
+
+function getNumber() {
+  return                  //here obj is at second line of return. try with ; also.
+  {
+    value: 23
+  };
+}
+console.log(getNumber())
+
+Automatic Semicolon Insertion causes the return to be treated as a standalone statement, so the function returns undefined.
+
+*/
+
+/* 
+var num = 8;
+function fun() {
+    num += 7;
+    num--;
+    console.log(num);
+}
+fun();
+
+*/
+
+/* 
+var val = (1, 2, 3, 4);
+console.log(val);
+*/
+
+/* 
+let obj = {
+  value: 'hello',
+  print: function(callback) {
+    callback();
+  }
+};
+
+function sayValue() {
+  console.log(this.value);
+}
+
+obj.print(sayValue);
+obj.print(sayValue.bind(obj));
+
+*/
+
+/* 
+function bar() {
+    return foo;
+    foo = 10;
+    function foo() {}
+    var foo = '11';
+}
+console.log(typeof bar());
+
+*/
+/* 
+
+let a = (b = 3) - 3; 
+console.log(a, typeof b);
+
+*/
+
+/* 
+let arr1 = new Array(3).fill([]);
+let arr=[[],[],[]]
+
+arr1[0].push(10);
+arr[0].push(10);
+
+console.log(arr1);
+console.log(arr);
+*/
+
+/* 
+(function(){
+  var a = b = 3;             //in this  its act like var a = b , b = 3, b acts like a global variable
+})();
+
+console.log(b)
+console.log("a defined? " + (typeof a !== 'undefined'));
+console.log("b defined? " + (typeof b !== 'undefined'));
+
+*/
+
+/* 
+console.log("0 || 1 = "+(0 || 1));
+console.log("1 || 2 = "+(1 || 2));
+console.log("0 && 1 = "+(0 && 1));
+console.log("1 && 2 = "+(1 && 3));
+*/
+
+/* 
+
+var a={},
+    b={key:'b'},
+    c={key:'c'};
+
+a[b]=123;     // { '[object Object]': 123 }
+a[c]=456;     // { '[object Object]': 456 }  
+
+console.log(a[b]);
+
+*/
+
+/* 
+(function(x) {
+    return (function(y) {
+        console.log(x);
+    })(2)
+})(1);
+
+----
+(function(x) {
+    return (function(x) {
+        console.log(x);
+    })(2)
+})(1);
+*/
+
+
+/* 
+
+var hero = {
+    _name: 'John Doe',
+    getSecretIdentity: function (){
+        return this._name;
+    }
+};
+
+var stoleSecretIdentity = hero.getSecretIdentity;
+
+console.log(stoleSecretIdentity());
+console.log(hero.getSecretIdentity());
+
 */
