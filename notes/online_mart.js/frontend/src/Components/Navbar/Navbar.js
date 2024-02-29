@@ -15,7 +15,17 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import variable from '../../styles/variables.scss'
+// import variable from '../../styles/variables.scss'
+let variable = {
+    primaryColor: '#232828',
+    primaryLight: '#efe9e7',
+    secondaryColor: 'hsl(180, 10%, 26%)',
+    tertiaryColor: '#C7511F',
+
+    primaryButton: '#C7511F',
+    secondaryButton: '#313939',
+    iconColor: '#ba790a',
+}
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',

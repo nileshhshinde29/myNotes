@@ -1,7 +1,7 @@
 import { Box, Card, Divider, List } from '@mui/material'
 import React from 'react'
 import './sidebar.scss'
-import variable from '../../styles/variables.scss'
+// import variable from '../../styles/variables.scss'
 import ListSubheader from '@mui/material/ListSubheader';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -14,6 +14,16 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
 import { useNavigate } from 'react-router-dom';
+let variable = {
+    primaryColor: '#232828',
+    primaryLight: '#efe9e7',
+    secondaryColor: 'hsl(180, 10%, 26%)',
+    tertiaryColor: '#C7511F',
+
+    primaryButton: '#C7511F',
+    secondaryButton: '#313939',
+    iconColor: '#ba790a',
+}
 
 
 function Sidebar() {

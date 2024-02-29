@@ -9,14 +9,14 @@
     </div>
 </template>
 <script>
-import Mixins from '../Mixins/Mixins'
-import Mixins2 from '../Mixins/Mixin2'
+import Mixins from "../Mixins/Mixins";
+import Mixins2 from "../Mixins/Mixin2";
 export default {
-    mixins: [Mixins, Mixins2]
-}
+  mixins: [Mixins, Mixins2],
+};
 </script>
 <style scoped >
 h2 {
-    color: blue;
+  color: blue;
 }
 </style>

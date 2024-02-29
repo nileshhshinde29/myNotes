@@ -10,6 +10,8 @@
 - What are the datatype?
 - Difference between == & === ? 
 - What is the difference between map and filter? 
+- diff between promise and async await.
+- ES6 2015 features.
 - promise 
 - try catch 
 - difference between let const var
@@ -30,11 +32,13 @@
 - temporal dead zone 
 - Strict mode in react js
 - is javascript is single threaded or Multithreaded.
+- What is webpack?
 
 
 # CSS:
 
 - What are the selectors?
+- what is flex box?
 - How many types can we write css? 
 - CSS structure?  
 - Box Model
