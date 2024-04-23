@@ -34,9 +34,6 @@ export default {
       secreteKey: 'hashAdd'
 
     }),
-
-
-
     privateKey() {
       return this.$store.getters.hashAdd
     },
@@ -46,7 +43,6 @@ export default {
   },
 
   methods: {
-
     ...mapMutations({
       setNewName: 'setNewName',
       changeUserType: 'changeUserType'
@@ -56,15 +52,12 @@ export default {
       setName: 'setName'
 
     }),
-
-
     changeName() {
       // this.$store.commit('setNewName', 'Nilesh shinde')
       // this.$store.state.name = "Nilesh Shinde"
 
       this.setNewName('set by map Mutation')
     },
-
     changeNameAsync() {
       // this.$store.dispatch('setName', "Onkar Bhosale")
       this.setName("set by Map Action")

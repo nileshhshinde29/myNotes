@@ -339,3 +339,43 @@ for (let i = 0; i < input.length; i++) {
 }
 
 console.log(result.join(', '));
+
+# Flat Method:
+
+let arr = [1,2,[2,3,[3,4]],4,[5,5]]
+
+let result =[];
+function rec(arr){
+    arr.forEach(item=>{
+        if(Array.isArray(item)){
+            rec(item)
+        }
+        else{
+            result.push(item)
+        }
+    })
+    return result
+}
+
+console.log(rec(arr))
+
+# count number of repetition of each element.    
+let a = [1, 4, 5, 4, 1, 1, 5, 6, 8, 9, 4];
+
+let frequency = {};
+for (let i = 0; i < a.length; i++) {
+    let element = a[i];
+    
+    if (frequency[element]) {
+        frequency[element]++;
+    } 
+    else {
+        frequency[element] = 1;
+    }
+}
+let b =[]
+
+for(item in frequency){
+    b.push({[item]:frequency[item]})
+}
+console.log(b);

@@ -1,0 +1,1 @@
+proficient in building high-performance web applications with expertise in ReactJS, Redux, and other related technologies. With a passion for delivering quality code and committed to creating user-friendly and responsive interfaces.

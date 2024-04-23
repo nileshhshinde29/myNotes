@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 export default {
   props: {
-    msg: String
+    msg: String,
   },
   components: {
     HelloWorld,
@@ -19,16 +19,16 @@ export default {
   data() {
     return {
       message: "Hello, Vue!",
-      showComp: true
+      showComp: true,
     };
   },
   methods: {
     hideHelloWorld() {
-      this.showComp = !this.showComp
+      this.showComp = !this.showComp;
     },
     changeMessage() {
-      this.message = "new message"
-    }
+      this.message = "new message";
+    },
   },
   beforeCreate() {
     console.log("beforeCreate hook");
@@ -63,7 +63,7 @@ export default {
   errorCaptured(err, vm, info) { // Only available in Vue 2
     console.error("errorCaptured hook", err, vm, info);
   }, */
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -86,3 +86,4 @@ a {
   color: #42b983;
 }
 </style>
+

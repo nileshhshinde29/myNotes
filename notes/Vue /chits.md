@@ -587,3 +587,41 @@ https://vuejs.org/guide/essentials/watchers.html#watcheffect
 
 4003373023
 
+
+
+# vue 3 features:
+1. Composition API
+2. Better Type Support: Vue 3’s codebase is entirely written in TypeScript  
+3. Improved Virtual DOM Algorithm : Virtual DOM has been completely redesigned in Vue 3
+4. Teleport :  is a built-in component that allows us to "teleport" a part of a component's template into a DOM node that exists outside the DOM
+
+# Deprecated items in vue 3
+1. filter: we can use computed 
+2. Key Attribute : key is no longer necessary on v-if/v-else/v-else-if branches since Vue now automatically generates unique key.
+
+# migrate vue 2 to vue 3
+1. Install migration build ( @vue/compat )
+2. package.json then config.js madhe configuration karane.
+3. Console chec build errors solve karun web browser che warnings solve karne
+    console che error --> deprecated code change, syntax chagnes
+    browser warning --> Composition API changes
+4. application testing and performance check karane
+5.  @vue/compat uninstall karne
+6. package.json and config.js madhil configuration remove karne
+
+
+Global Guards: Apply to every route globally.
+
+  1. beforeEach: Called before navigation starts.
+  2. beforeResolve: Called just before the navigation is confirmed, after all in-component guards and async route components are resolved.
+  3. afterEach: Called after navigation has been confirmed
+
+Per-Route Guards: Defined in the route configuration.
+  1. beforeEnter: Can be used for route-specific checks.
+
+In-Component Guards: Defined inside route components.
+
+1. beforeRouteEnter: Called when the route that renders this component is about to be entered. Does not have access to this component instance, because it has not been   
+                     created yet.
+2. beforeRouteUpdate: Called when the route that renders this component has changed, but this component is reused in the new route. You can access this component instance.
+3. beforeRouteLeave: Called when the route that renders this component is about to be left. 

@@ -17,7 +17,7 @@ export default createStore({
         },
         setLogin(state, payload) {
             console.log(state, payload);
-            state.isLogin = payload
+            state.isLogin = payload      
         },
     },
     actions: {

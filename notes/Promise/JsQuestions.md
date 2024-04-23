@@ -33,12 +33,13 @@
 - Strict mode in react js
 - is javascript is single threaded or Multithreaded.
 - What is webpack?
+- what we do for secure web application from fishing.
 
 
 # CSS:
 
 - What are the selectors?
-- what is flex box?
+- what is flex box?        Flexbox is a one-dimensional layout method for arranging items in rows or columns
 - How many types can we write css? 
 - CSS structure?  
 - Box Model

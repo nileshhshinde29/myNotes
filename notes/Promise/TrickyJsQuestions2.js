@@ -625,3 +625,36 @@ console.log(stoleSecretIdentity());
 console.log(hero.getSecretIdentity());
 
 */
+
+/* 
+console.log(null == undefined ) why?
+console.log(null === undefined )
+*/
+
+/* 
+
+console.log(sum(2,3))
+console.log(sum(2)(3))  both output must be 5
+
+const sum =(x,y)=>{
+  if(y==undefined){
+    return (y)=>{
+      return x+y
+    }
+  }
+  return x+y
+}
+
+
+
+*/
+
+/* 
+
+const a= {name:"nilesh"} 
+a.name="sachin"
+a= {name:'rutu'}
+console.log(a)
+
+we can change property but can not reassign to variable declared using const.
+*/
