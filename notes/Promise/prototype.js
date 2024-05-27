@@ -46,5 +46,5 @@ let newObj = Object.create(Person)
 
 newObj.lastName = "shinde"
 
-console.log(newObj.name)    // nilesh
+console.log(newObj.name)    // 
 console.log(newObj.lastName) // shinde

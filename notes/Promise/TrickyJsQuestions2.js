@@ -399,8 +399,8 @@ console.log(person); // Anil
 
 function Car() {
     this.make = 'tata';
-    return { make: 'Kia' };.
-} I
+    return { make: 'Kia' };
+} 
 
 const myCar = new Car();
 console.log (myCar.make);

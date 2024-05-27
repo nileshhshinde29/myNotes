@@ -45,6 +45,7 @@
 - Box Model
 - Pre Processor (SASS)? 
 - visibility:hidden and display:none
+- Position absolute vs position relative. 
 - pseudo selector in css? 
 - SASS Mixins? 
 - ways to use css in component 

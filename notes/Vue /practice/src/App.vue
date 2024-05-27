@@ -1,69 +1,56 @@
-<template>
-  <div>
-    <h1>{{ name }}</h1>
-    <div class="{`${classname? }`}">class</div>
-    <div :style="{ color: state1 ? 'red' : 'green', backgroundColor: 'gray' }">
-      hello
-    </div>
-    <div
-      v-for="(item1, index) in paginatedProducts"
-      :key="index"
-      className="card"
-    >
-      <div>
-        <div>
-          {{ item1.category }}
-        </div>
-        <div v-for="(item, index) in users" :key="index">
-          <div v-if="item1.id == item.id">{{ item.email }}</div>
-        </div>
-      </div>
-    </div>
-    <button @click="prevFunction">prev</button>
-    <button
-      v-for="(item, index) in totalPageCount"
-      :key="index"
-      @click="goToPage(index + 1)"
-    >
-      {{ index + 1 }}
-    </button>
-    <button @click="nextFunction">next</button>
+<template lang="">
+  <input v-model="searchStr"/>
+  <div v-for="(item, index) in  paginationData" :key="index">
+    {{item.title}}
   </div>
+  <button @click=Prev>Prev</button>
+  <span v-for="(item,index) in totalNoOfPages" :key="index">
+  <button @click="()=>pageNo=index" :style="{backgroundColor:pageNo==index? 'red':''}">{{index+1}}</button>
+  </span>
+  <button @click="Next">Next</button>
+
 </template>
 <script>
 export default {
-  name: "AppComponent",
-  components: {},
-
+  name: "App",
   data() {
     return {
-      name: "nilesh",
       products: [],
       users: [],
-      currentPageNo: 1,
-      totalPages: 4,
-      state1: true,
+      pageNo: 0,
+      displayNoItems: 3,
+      searchStr: "",
     };
   },
-  computed: {
-    totalPageCount() {
-      return Math.ceil(this.products.length / this.totalPages);
-    },
-    paginatedProducts() {
-      let startIndex = (this.currentPageNo - 1) * this.totalPages;
-      let endIndex = startIndex + this.totalPages;
-      console.log(this.products.slice(startIndex, endIndex));
-      return this.products.slice(startIndex, endIndex);
-    },
+
+  updated() {
+    console.log(this.searchStr);
   },
   mounted() {
     this.getProducts();
-    this.getUsers();
+    console.log(this.product);
+  },
+
+  computed: {
+    paginationData() {
+      let start = this.pageNo * this.displayNoItems;
+      let end = start + this.displayNoItems;
+
+      return this.products
+        .filter((item) => item.title.includes(this.searchStr))
+        .slice(start, end);
+    },
+    totalNoOfPages() {
+      return Math.ceil(
+        this.products.filter((item) => item.title.includes(this.searchStr))
+          .length / this.displayNoItems
+      );
+    },
   },
 
   methods: {
-    getProducts() {
-      fetch("https://fakestoreapi.com/products")
+    async getProducts() {
+      await fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
         .then((json) => (this.products = json));
     },
@@ -72,43 +59,19 @@ export default {
         .then((res) => res.json())
         .then((json) => (this.users = json));
     },
-    prevFunction() {
-      if (this.currentPageNo > 1) {
-        this.currentPageNo--;
+
+    Prev() {
+      if (this.pageNo > 0) {
+        this.pageNo = this.pageNo - 1;
       }
     },
-    nextFunction() {
-      if (this.currentPageNo < this.totalPageCount) {
-        this.currentPageNo++;
+    Next() {
+      if (this.pageNo < this.totalNoOfPages - 1) {
+        this.pageNo = this.pageNo + 1;
       }
-    },
-    goToPage(page) {
-      this.currentPageNo = page;
     },
   },
 };
 </script>
-<style scoped>
-.card {
-  background-color: rgb(187, 107, 64);
-  height: 50px;
-  margin-top: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+<style lang="">
 </style>
-
-
-
-<!-- 
-   totalPageNo() {
-      return Math.ceil(this.products.length / this.totalPages);
-    },
-    paginatedItems() {
-      let startIndex = (this.currentPage - 1) * this.totalPages;
-      let endIndex = startIndex + this.totalPages;
-      console.log(startIndex, endIndex);
-      return this.products.slice(startIndex, endIndex);
-    },
- -->

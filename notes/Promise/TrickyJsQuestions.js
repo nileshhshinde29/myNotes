@@ -170,7 +170,7 @@ console.log(!typeof names === false);
 
 // q14  
 
-console.log(isNan('Nilesh'));
-console.log(isNan(1));
+console.log(isNaN('Nilesh'));
+console.log(isNaN(1));
 /* hii */
 let aa = 0;
