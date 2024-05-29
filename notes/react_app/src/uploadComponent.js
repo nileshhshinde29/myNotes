@@ -1,33 +1,25 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
-import 'react-image-crop/dist/ReactCrop.css'
-import ReactCrop from 'react-image-crop'
+import 'react-image-crop/dist/ReactCrop.css';
+import ReactCrop from 'react-image-crop';
 
 const PhotoUpload = () => {
-    const fileInputRef = useRef(null);
     const [preview, setPreview] = useState(null);
     const [message, setMessage] = useState('');
-    const [fileName, setFileName] = useState('');
     const [output, setOutput] = useState(null);
-    const [image, setImage] = useState(null);
+    const [crop, setCrop] = useState({ aspect: 1 });
+    const imgRef = useRef(null);
 
-
-
-    const [crop, setCrop] = useState()
-
-    // Handle file selection
     const handleFileChange = () => {
-        const file = fileInputRef.current.files[0];
+        const file = imgRef.current.files[0];
         if (file) {
-            setFileName(file);
-            setImage(file)
+            // setFileName(file);
             setPreview(URL.createObjectURL(file));
         }
     };
 
-    // Handle file upload
     const handleUpload = async () => {
-        const file = fileInputRef.current.files[0];
+        const file = imgRef.current.files[0];
         if (!file) {
             setMessage('No file selected');
             return;
@@ -37,7 +29,7 @@ const PhotoUpload = () => {
         formData.append('photo', file);
 
         try {
-            const response = await axios.post('http://localhost:5000/upload', formData, {
+            await axios.post('http://localhost:5000/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -48,40 +40,39 @@ const PhotoUpload = () => {
         }
     };
 
-    console.log(image);
-
-
     const cropImageNow = () => {
-        const canvas = document.createElement('canvas');
-        const scaleX = image?.naturalWidth / image.width;
-        const scaleY = image?.naturalHeight / image.height;
-        canvas.width = crop.width;
-        canvas.height = crop.height;
-        const ctx = canvas.getContext('2d');
 
+        const canvas = document.createElement('canvas');
+        const scaleX = imgRef.current.naturalWidth / imgRef.current.width;
+        const scaleY = imgRef.current.naturalHeight / imgRef.current.height;
         const pixelRatio = window.devicePixelRatio;
+
         canvas.width = crop.width * pixelRatio;
         canvas.height = crop.height * pixelRatio;
+
+        const ctx = canvas.getContext('2d');
         ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
         ctx.imageSmoothingQuality = 'high';
 
         ctx.drawImage(
-            image,
+            imgRef.current,
             crop.x * scaleX,
             crop.y * scaleY,
             crop.width * scaleX,
             crop.height * scaleY,
             0,
             0,
-            crop.width,
-            crop.height,
+            crop.width * pixelRatio,
+            crop.height * pixelRatio,
         );
 
-        // Converting to base64
-        const base64Image = canvas.toDataURL('image/jpeg');
-        setOutput(base64Image);
-    };
+        canvas.toBlob((blob) => {
+            setOutput(new File([blob], 'cropped-image.jpg', { type: 'image/jpeg' }));
+        }, 'image/jpeg');
 
+        // const base64Image = canvas.toDataURL('image/jpeg');
+
+    };
 
     return (
         <div className="file-upload">
@@ -89,27 +80,30 @@ const PhotoUpload = () => {
             <input
                 type="file"
                 accept="image/*"
-                ref={fileInputRef}
+                ref={imgRef}
                 onChange={handleFileChange}
             />
-            {/* {fileName && <p>Selected file: {fileName.name}</p>} */}
             <br />
-            {/* {crop && <img src={URL.createObjectURL(crop)} alt="fileName" style={{ width: '400px', marginTop: '10px' }} />} */}
-            {fileName &&
-                <ReactCrop crop={crop} onChange={c => setCrop(c)} onImageLoaded={setImage}>
-                    <img src={URL.createObjectURL(fileName)} alt="fileName" style={{ width: '400px', marginTop: '10px' }} />
+            {preview && (
+                <div>
+                    <ReactCrop
+                        crop={crop}
+                        onChange={(newCrop) => setCrop(newCrop)}
+                        onImageLoaded={(img) => imgRef.current = img}
+                    >
+                        <img
+                            ref={imgRef}
+                            src={preview}
+                            alt="Crop preview"
+                            style={{ width: '400px', marginTop: '10px' }}
+                        />
+                    </ReactCrop>
                     <button onClick={cropImageNow}>Crop</button>
-                </ReactCrop>
-            }
-
-            {/* {
-                fileName && <ReactCrop src={URL.createObjectURL(fileName)} onImageLoaded={setImage}
-                    crop={crop} onChange={setCrop} />
-            } */}
-
-
+                </div>
+            )}
             <br />
             <br />
+            {output && <img src={URL.createObjectURL(output)} />}
             <button onClick={handleUpload}>Upload</button>
             {message && <p>{message}</p>}
         </div>
