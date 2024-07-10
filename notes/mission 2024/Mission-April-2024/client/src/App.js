@@ -1,13 +1,11 @@
 import { Suspense, createContext, useContext, useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate, Outlet } from 'react-router-dom';
 import Login from './components/Login';
 import Home from './components/Home';
 import Register from './components/Register';
 import { authenticationService } from "./services/auth.service"
-import { Card } from '@mui/material';
-import Sidebar from './components/Sidebar';
-import AddMoment from './components/AddMoment';
-import GlimpseOfPast from './components/GlimpseOfPast';
+
+import Navbar from './components/navbar/Navbar';
 
 // Create a context to manage authentication
 export const AuthContext = createContext();
@@ -42,18 +40,39 @@ const useAuth = () => {
   return useContext(AuthContext);
 };
 
+console.log("authenticationService", authenticationService.currentUserValue);
 function App() {
   return (
-    <Suspense >
+    <Suspense fallback={() => <div>Loading....</div>} >
       <BrowserRouter>
         <AuthProvider>
+          <Navbar />
           <Routes>
-            <Route path="/" element={<AuthRoute><Login /></AuthRoute>} />
-            <Route path="/register" element={<AuthRoute><Register /></AuthRoute>} />
-            <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
-            <Route path="/add-moment" element={<PrivateRoute><AddMoment /></PrivateRoute>} />
-            <Route path="/edit-moment/:id" element={<PrivateRoute><AddMoment /></PrivateRoute>} />
-            <Route path="/glimpse-of-past" element={<PrivateRoute><GlimpseOfPast /></PrivateRoute>} />
+            <Route element={<AuthRoute />} >
+              <Route path='/' element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Route>
+            <Route element={<PrivateRoute />} >
+              <Route path="/add-to-cart" element={<div>add-to-cart</div>} />
+              <Route path="/orders" element={<div>My orders</div>} />
+              <Route path="/" element={<div>add-to-cart</div>} />
+              <Route path="/add-to-cart" element={<div>add-to-cart</div>} />
+              <Route path="/add-to-cart" element={<div>add-to-cart</div>} />
+            </Route>
+            <Route element={<AdminRoutes />} >
+              <Route path="/add-product" element={<div>Add Product</div>} />
+              <Route path="/all-products" element={<div>All Product</div>} />
+              <Route path="/orders" element={<div>Orders</div>} />
+              <Route path="/add-offer" element={<div>Offers</div>} />
+              <Route path="/all-offers" element={<div>All offers</div>} />
+            </Route>
+
+
+            {/* Public Routes */}
+
+            <Route path="/Home" element={<div>home</div>} />
+            <Route path="*" element={<div>Not found</div>} />
+
           </Routes>
         </AuthProvider>
       </BrowserRouter>
@@ -62,25 +81,35 @@ function App() {
 }
 
 // A custom wrapper for private routes
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = ({ element: Element, ...rest }) => {
 
   const { isLoggedIn } = useAuth();
 
-  if (!authenticationService.currentUserValue) {
-    return <Navigate to="/" />;
-  }
-
-  return <Sidebar children={children}>{children}</Sidebar>;
-};
-const AuthRoute = ({ children }) => {
-
-  const { isLoggedIn } = useAuth();
-
-  if (authenticationService.currentUserValue) {
+  if (!authenticationService.currentUserValue?.token) {
     return <Navigate to="/home" />;
   }
 
-  return children;
+  return <Outlet />
 };
+const AuthRoute = ({ element: Element, ...rest }) => {
+
+  const { isLoggedIn } = useAuth();
+
+  if (authenticationService.currentUserValue?.token) {
+    return <Navigate to="/home" />;
+  }
+
+  return <Outlet />;
+};
+
+const AdminRoutes = ({ }) => {
+
+  if (authenticationService.currentUserValue?.token && authenticationService.currentUserValue?.role == "admin") {
+    return <Outlet />
+  }
+  return <Navigate to="not-found" />
+
+
+}
 
 export default App;

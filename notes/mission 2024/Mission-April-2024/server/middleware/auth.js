@@ -15,8 +15,10 @@ const auth = async (req, res, next) => {
             if (err) {
                 return res.status(401).json({ message: 'Authentication failed!' })
             }
+            /* need to check because while login user obj has been changed */
+            let { iat, exp, ...rest } = decode
             req.user = {
-                user: decode.user,
+                ...rest,
                 token: newToken
             }
             return next()

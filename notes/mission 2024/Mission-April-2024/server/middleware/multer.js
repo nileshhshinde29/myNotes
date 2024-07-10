@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
             cb(null, "CSVfiles");
 
         }
-        if (file.mimetype == "image/jpeg") {
+        if (file.mimetype == "image/jpeg" || file.mimetype == "image/png") {
             cb(null, "uploads");
 
         }
@@ -26,7 +26,7 @@ const upload = multer({
         if (file.mimetype == "application/pdf") {
             var ext = path.extname(file.originalname);
             if (ext !== ".pdf") {
-                return callback(new Error("Only images are allowed"));
+                return callback(new Error("Only pdf files are allowed"));
             }
             callback(null, true);
         }
@@ -34,13 +34,13 @@ const upload = multer({
         if (file.mimetype == "text/csv") {
             var ext = path.extname(file.originalname);
             if (ext !== ".csv") {
-                return callback(new Error("Only images are allowed"));
+                return callback(new Error("Only csv files are allowed"));
             }
             callback(null, true);
 
         }
 
-        if (file.mimetype == "image/jpeg") {
+        if (file.mimetype == "image/jpeg" || file.mimetype == 'image/png') {
             var ext = path.extname(file.originalname);
             if (ext !== ".png" && ext !== ".jpg" && ext !== ".gif" && ext !== ".jpeg") {
                 return callback(new Error("Only images are allowed"));

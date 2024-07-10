@@ -1,19 +1,15 @@
-const express = require("express");
+
+const express = require('express')
 const router = express.Router();
-const auth = require("../middleware/auth");
-const { createCategory, getCategories } = require('../controller/categoryController')
 
-router.get("/get-categories", auth, getCategories);
+const { CreateCategory, getCategories, updateCategories } = require("../controller/categoryController");
+const { auth } = require('../middleware/auth');
+const { adminOnly } = require('../middleware/role');
+const upload = require('../middleware/multer');
 
-router.post("/create-category", auth, createCategory);
-
-// router.route("/:id").get(getContact);
-
-// router.route("/:id").put(editContact);
-
-// router.route("/:id").delete(deleteContact);
+router.post('/create-category', auth, adminOnly, upload.single("categoryImage"), CreateCategory)
+router.get('/get-categories', getCategories)
+router.post('/update-categories', auth, adminOnly, upload.single("categoryImage"), updateCategories)
 
 
-
-
-module.exports = router;
+module.exports = router

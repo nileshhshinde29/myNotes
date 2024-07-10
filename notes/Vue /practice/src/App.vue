@@ -1,4 +1,46 @@
-<template lang="">
+<template>
+  <div>
+    <Component1 :data="data" />
+  </div>
+</template>
+<script>
+import Component from "./components/comp1.vue";
+export default {
+  name: "App",
+  components: {
+    Component1: Component,
+  },
+  data() {
+    return {
+      data: [],
+    };
+  },
+
+  created() {
+    this.fetchData();
+  },
+
+  methods: {
+    async fetchData() {
+      await fetch("https://fakestoreapi.com/products")
+        .then((res) => res.json())
+        .then((res) => (this.data = res))
+        .catch((e) => console.log(e));
+    },
+  },
+};
+</script>
+<style>
+</style>
+
+
+
+
+
+
+
+
+<!-- <template lang="">
   <input v-model="searchStr"/>
   <div v-for="(item, index) in  paginationData" :key="index">
     {{item.title}}
@@ -74,4 +116,4 @@ export default {
 };
 </script>
 <style lang="">
-</style>
+</style> -->

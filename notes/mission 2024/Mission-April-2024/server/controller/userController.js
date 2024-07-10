@@ -11,7 +11,7 @@ const PDFDocument = require('pdfkit');
 
 const register = async (req, res) => {
 
-    const { name, email, password } = req.body
+    const { name, email, password, role } = req.body
 
     const emailExist = await User.findOne({ email });
 
@@ -27,7 +27,8 @@ const register = async (req, res) => {
         const contact = await User.create({
             name,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            role,
         })
         return res.status(200).json(contact)
     } catch (error) {
@@ -49,15 +50,15 @@ const login = async (req, res) => {
     try {
         if (user && (await bcrypt.compare(password, user.password))) {
             const accessToken = jwt.sign({
-                user: {
-                    email, id: user.id
-                }
+                email,
+                id: user.id,
+                role: user.role,
             }, process.env.SECRET_JWT_KEY, { expiresIn: "1d" })
 
             const refreshToken = jwt.sign({
-                user: {
-                    email, id: user.id
-                }
+                email,
+                id: user.id,
+                role: user.role,
             }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '1m' });
 
             // Assigning refresh token in http-only cookie 

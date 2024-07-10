@@ -1,79 +1,43 @@
-
-const Product = require('../model/productModel')
-
-const getProducts = async (req, res) => {
-    console.log(req.user.user.id)
-    try {
-        Product.find({ added_by: req.user.user.id })
-            .populate('added_by', 'username')
-            .then((products) => {
-                res.status(200).json(products);
-            })
-    } catch (error) {
-        res.status(400).json({ message: 'Something went wrong!' })
-    }
-}
+const slugify = require("slugify")
+const Product = require("../model/productModel")
 
 const createProduct = async (req, res) => {
-    try {
-        let images = [];
+    const productImages = req.files.map(item => {
+        return { img: item.filename }
+    })
 
-        if (req.files?.length > 0) {
-            images = req.files.map((file) => {
-                return { img: file.filename };
-            });
+    const { name, price, description, quantity, category } = req.body
+    if (!name || !price || !description) {
+        return res.status(400).json('validation error')
+    }
+
+    try {
+        const productObj = {
+            name,
+            slug: slugify(name),
+            price,
+            description,
+            quantity,
+            category,
+            productPictures: productImages,
+            createdBy: req.user.id
         }
 
+        const product = await Product.create(
+            productObj
+        )
 
-        const { productName, productDetails, category } = req.body
+        return res.status(200).json(product)
+    }
+    catch (e) {
+        return res.status(400).json(e)
 
-        if (!productName || !productDetails || !category) {
-            res.status(400);
-            throw new Error('validation error')
-        }
-        const product = await Product.create({
-            images,
-            productName,
-            productDetails,
-            added_by: req.user.user.id,
-            category_id: category,
-
-        })
-        console.log(images)
-
-        res.status(200).json(product)
-    } catch (error) {
-        res.status(400).json(error)
     }
 }
+const getAllProducts = () => {
 
-const getProductsByCategory = async (req, res) => {
-    const { category } = req.body;
-    console.log(req.body)
-    try {
-        Product.find({ category_id: category })
-            .populate('added_by', 'username')
-            .populate('category_id', 'categoryName')
-            .then((products) => {
-                res.status(200).json(products);
-            })
-    } catch (error) {
-        res.status(400).json({ message: 'Something went wrong!' })
-    }
 }
 
-const getProductsAddedByUser = async (req, res) => {
-    const { category } = req.body;
-    try {
-        Product.find({ category_id: category, added_by: req.user.user.id })
-            .populate('added_by', 'username')
-            .populate('category_id', 'categoryName')
-            .then((products) => {
-                res.status(200).json(products);
-            })
-    } catch (error) {
-        res.status(400).json({ message: 'Something went wrong!' })
-    }
+module.exports = {
+    createProduct, getAllProducts
 }
-
-module.exports = { getProducts, createProduct, getProductsByCategory }

@@ -44,10 +44,10 @@ export default function SignInSide() {
 
     const onSubmit = async (data) => {
         data = {
-            email: 'nileshhshinde29@gmail.com',
-            password: "Nilesh@123"
+            email: data.email,
+            password: data.password
         }
-        authenticationService.login(data)
+        await authenticationService.login(data)
             .then(res => navigate('/home'))
             .catch(err => alert("Please provide valid credentials"))
     };

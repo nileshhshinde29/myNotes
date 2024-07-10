@@ -2,6 +2,8 @@
 
 import { BehaviorSubject } from 'rxjs';
 import { get, post } from '../http_config/http.service'
+import { jwtDecode } from 'jwt-decode';
+
 
 let currentUserFromStorage
 const currentUserSubject = new BehaviorSubject(currentUserFromStorage || undefined);
@@ -14,7 +16,9 @@ try {
     currentUserFromStorage = JSON.parse(currentUserFromStorage);
     if (currentUserFromStorage) {
         // loadCurrentUser();
-        currentUserSubject.next(currentUserFromStorage) // this line is just a jugad to avoid loadCurrent user from the function
+        const decoded = jwtDecode(currentUserFromStorage);
+        console.log(decoded);
+        currentUserSubject.next({ token: currentUserFromStorage, role: decoded?.role }) // this line is just a jugad to avoid loadCurrent user from the function
     }
 
 } catch (e) {
@@ -37,10 +41,10 @@ async function login(data) {
     await post('/user/login', data)
         .then(response => {
             // Cookie.set('_token', response.token, { path: '/' })
-            console.log(response);
-            localStorage.setItem('AuthenticationToken', JSON.stringify(response))
+            localStorage.setItem('AuthenticationToken', JSON.stringify(response.data))
+            const decoded = jwtDecode(response.data);
 
-            currentUserSubject.next(response)
+            currentUserSubject.next({ token: response.data, role: decoded?.role })
 
             // currentOrganizationSubject.next(response.user._org[0])
 
