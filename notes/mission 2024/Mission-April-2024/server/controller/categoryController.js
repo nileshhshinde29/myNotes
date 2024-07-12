@@ -90,4 +90,19 @@ const updateCategories = async (req, res) => {
 
 }
 
-module.exports = { CreateCategory, getCategories, updateCategories }
+const deleteCategory = async (req, res) => {
+    const { id } = req.body
+
+    try {
+        const ids = await Category.find({ "$or": [{ _id: id }, { parentId: id }] })
+        console.log(ids);
+        res.status(200).send({ message: "Ids deleted successfully" })
+
+
+    } catch (err) {
+        res.status(400).send(err)
+    }
+
+}
+
+module.exports = { CreateCategory, getCategories, updateCategories, deleteCategory }

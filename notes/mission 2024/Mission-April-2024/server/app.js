@@ -37,12 +37,14 @@ app.use('/PDFfiles', express.static('PDFfiles')) //we can access pdf file from a
 const categoryRoute = require('./routes/categoryRoute')
 const productRoute = require('./routes/productRoute')
 const cartRoute = require('./routes/cartRoute')
+const pageRoute = require('./routes/pageRoute')
 
 
 app.use('/uploads', express.static('uploads')) //we can expose this folder to browser by this http://localhost:8080/uploads/1708066994298.pdf
 app.use('/', categoryRoute)
 app.use('/product', productRoute)
 app.use('/cart', cartRoute)
+app.use('/pages', pageRoute)
 
 
 
