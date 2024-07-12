@@ -3,7 +3,6 @@ const path = require("path");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        console.log("********", file);
         if (file.mimetype == "application/pdf") {
             cb(null, "PDFfiles");
 
@@ -22,7 +21,6 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage,
     fileFilter: function (req, file, callback) {
-        console.log("$$$$$$$$$$$$$$$", file);
         if (file.mimetype == "application/pdf") {
             var ext = path.extname(file.originalname);
             if (ext !== ".pdf") {
