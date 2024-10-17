@@ -212,7 +212,7 @@ hint: type of array is object;
 /* 
  function Age(){
  "use strict"
-       age=21 ; // by default var
+       age=21 ; // by default  global variable
        console.log(age);
  }
  Age()
