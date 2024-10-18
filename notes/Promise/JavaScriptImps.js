@@ -37,6 +37,16 @@ session storage and local storage :
 
     localStorage:
         The data stored using localStorage is available into any window of same browser.
-        
-
 */
+
+
+differance between fetch and axios
+fetch:  it handles http network header only, we need to create extra functionality to handle 404 and 500 error
+        It dont have intercepters.
+        It does not support on old browser like internet explorer. In this case need polifils.       
+
+axios:  It handles all errors.
+        It have interceptors,
+        It have supported with all browser.       
+               
+       
